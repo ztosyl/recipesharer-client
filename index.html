@@ -12,6 +12,27 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Recipe Sharer (Name Pending)</h1>
+      <div class="unauthorized">
+        <form class='sign-up'>
+          <input class="sign-up-input" required type="text" name="credentials[email]" placeholder="Email">
+          <input class="sign-up-input" required type="password" name="credentials[password]" placeholder="Password">
+          <input class="sign-up-input" required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <button class="btn btn-success" type="submit">Sign Up</button>
+        </form>
+        <form class='sign-in'>
+         <input class="sign-in-input" required type="text" name="credentials[email]" placeholder="Email">
+         <input class="sign-in-input" required type="password" name="credentials[password]" placeholder="Password">
+         <button class="btn btn-success" type="submit">Sign In</button>
+        </form>
+      </div>
+      <div class="authorized">
+       <form class="change-password">
+        <input class="change-password-input" required type="password" name="passwords[old]" placeholder="Old Password">
+        <input class="change-password-input" required type="password" name="passwords[new]" placeholder="New Password">
+        <button class="btn btn-success" type="submit">Change Password</button>
+       </form>
+       <button class="sign-out btn btn-danger" type="submit" >Sign Out</button>
+      </div>
     </body>
 </html>
