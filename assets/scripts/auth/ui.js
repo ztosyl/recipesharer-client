@@ -15,7 +15,6 @@ const signUpFailure = error => {
 const signInSuccess = data => {
   console.log('Sign in has succeeed. Data is: ' + data)
   store.user = data.user
-  console.log(store.user)
   $('.messaging').text('Sign in a success!')
   $('.unauthorized').hide()
   $('.authorized').show()

@@ -1,0 +1,19 @@
+{{#each recipes as |recipe|}}
+  <section data-id="{{recipe._id}}">
+    <h3>{{recipe.title}}</h3>
+    <h6>{{recipe.meal}} Recipe</h6>
+    <h6><strong>Difficulty:</strong> {{recipe.difficulty}}</h6>
+    <h6>Ingredients:</h6>
+    <ol>{{#each recipe.ingredients as |ingredient|}}
+    <li>{{#if ingredient.unit}}
+      {{ingredient.name}}: {{ingredient.amount}} {{ingredient.unit}}
+          {{else}}
+      {{ingredient.name}}s: {{ingredient.amount}} {{ingredient.unit}}
+          {{/if}}</li>
+    {{/each}}</ol>
+    <h6>Steps:</h6>
+    <ol>{{#each recipe.steps as |step|}}
+    <li>{{step}}</li>
+    {{/each}}</ol>
+  </section>
+{{/each}}
