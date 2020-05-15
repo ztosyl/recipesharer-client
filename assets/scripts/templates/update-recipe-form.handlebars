@@ -1,0 +1,33 @@
+<div class="form-group updater">
+  <h4>Update below:</h4>
+   <form data-id="{{id}}" class="update-recipe">
+    <input class="title" type="text" name="recipe[title]" placeholder="Recipe Title">
+      <label>Type of recipe:</label>
+        <select class="form-control" name="recipe[meal]">
+          <option>Breakfast</option>
+          <option>Lunch</option>
+          <option>Dinner</option>
+          <option>Dessert</option>
+          <option>Side</option>
+          <option>Snack</option>
+          <option>Miscellaneous</option>
+        </select>
+      <label>Difficulty:</label>
+        <select class="form-control" name="recipe[difficulty]">
+          <option>Easy</option>
+          <option>Moderate</option>
+          <option>Difficult</option>
+        </select>
+    <div class='ingredients'>
+    <label class="title">Ingredients:</label>
+    <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each new ingredient on a new line.</small>
+    <textarea name="recipe[ingredients]" placeholder="Ingredients go here!"></textarea>
+  </div>
+    <div class='steps'>
+    <label class="title">Steps:</label>
+    <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each new ingredient on a new line. Don't add numbers or dashes before the steps!</small>
+    <textarea name="recipe[steps]" placeholder="Steps go here!"></textarea>
+    </div>
+    <button data-id="{{id}}" type="submit" class="update-recipe-button btn btn-warning">Update</button>
+   </form>
+ </div>

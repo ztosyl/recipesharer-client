@@ -3,3 +3,41 @@
 .authorized {
   display: none;
 }
+
+.post-recipes {
+  display: none;
+}
+
+.title {
+  display: block;
+  margin-top: 10px;
+}
+
+.add-ingredient {
+  cursor: pointer;
+}
+
+.add-step {
+  cursor: pointer;
+}
+
+input {
+  margin-left: 10px;
+}
+
+textarea {
+  margin-left: 10px;
+}
+
+select {
+  margin-left: 10px;
+  width: 200px;
+}
+
+.recipes h3 {
+  cursor: pointer;
+}
+
+.hidden-buttons {
+  display: none;
+}

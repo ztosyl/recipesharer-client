@@ -35,6 +35,40 @@
        </form>
        <button class="sign-out btn btn-danger" type="submit" >Sign Out</button>
        <button class="get-recipes btn btn-success" type="submit">GET YOUR RECIPES</button>
+       <button class="reveal-post-recipes btn btn-success" type="submit">POST A RECIPE</button>
+      <div class="recipes"></div>
+      <div class="form-group">
+       <form class="post-recipes">
+        <input class="title" required type="text" name="recipe[title]" placeholder="Recipe Title">
+          <label>Type of recipe:</label>
+            <select required class="form-control" name="recipe[meal]">
+              <option>Breakfast</option>
+              <option>Lunch</option>
+              <option>Dinner</option>
+              <option>Dessert</option>
+              <option>Side</option>
+              <option>Snack</option>
+              <option>Miscellaneous</option>
+            </select>
+          <label>Difficulty:</label>
+            <select required class="form-control" name="recipe[difficulty]">
+              <option>Easy</option>
+              <option>Moderate</option>
+              <option>Difficult</option>
+            </select>
+        <div class='ingredients'>
+        <label class="title">Ingredients:</label>
+        <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each new ingredient on a new line.</small>
+        <textarea name="recipe[ingredients]" required placeholder="Ingredients go here!"></textarea>
+      </div>
+        <div class='steps'>
+        <label class="title">Steps:</label>
+        <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each new ingredient on a new line. Don't add numbers or dashes before the steps!</small>
+        <textarea name="recipe[steps]" required placeholder="Steps go here!"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Post Recipe</button>
+       </form>
+       </div>
       </div>
     </body>
 </html>
