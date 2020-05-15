@@ -8,7 +8,7 @@ const getRecipesSuccess = data => {
 }
 
 const getRecipesFailure = () => {
-  $('.messaging').text('Recipe search failed. Please try again later.')
+  $('.bad-messaging').text('Recipe search failed. Please try again later.')
 }
 
 const postRecipeSuccess = data => {
@@ -18,7 +18,7 @@ const postRecipeSuccess = data => {
 }
 
 const postRecipeFailure = () => {
-  $('.messaging').text('Recipe post failed. Please try again later.')
+  $('.bad-messaging').text('Recipe post failed. Please try again later.')
 }
 
 const deleteRecipeSuccess = id => {
@@ -37,12 +37,21 @@ const updateRecipeSuccess = data => {
 }
 
 const updateRecipeFailure = error => {
-  $('.messaging').text('Recipe update failed. Please try again later.')
+  $('.bad-messaging').text('Recipe update failed. Please try again later.')
   console.error(error)
 }
 
 const findOneRecipeFailure = () => {
-  $('.messaging').text(`Sorry! Owner of this recipe can't be authenticated right now.`)
+  $('.bad-messaging').text(`Sorry! Owner of this recipe can't be authenticated right now.`)
+}
+
+const getYourRecipesSuccess = data => {
+  const getRecipesHtml = getRecipesTemplate({ recipes: data })
+  $('.recipes').html(getRecipesHtml)
+}
+
+const getYourRecipesFailure = () => {
+  $('.bad-messaging').text(`Sorry! Your recipes couldn't be reached at this time. Please try again later.`)
 }
 
 module.exports = {
@@ -54,5 +63,7 @@ module.exports = {
   deleteRecipeFailure,
   updateRecipeSuccess,
   updateRecipeFailure,
-  findOneRecipeFailure
+  findOneRecipeFailure,
+  getYourRecipesSuccess,
+  getYourRecipesFailure
 }

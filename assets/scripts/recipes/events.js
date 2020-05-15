@@ -25,6 +25,25 @@ const showFullRecipe = event => {
     .catch(ui.findOneRecipeFailure)
 }
 
+const onGetYourRecipes = event => {
+  const yourRecipes = []
+  const you = store.user._id
+  api.getRecipes()
+    .then(data => {
+      const recipes = data.recipes
+      console.log(you)
+      for (let i = 0; i < recipes.length; i++) {
+        console.log(recipes[i].author)
+        if (recipes[i].author === you) {
+          yourRecipes.push(recipes[i])
+        }
+      }
+      return yourRecipes
+    })
+    .then(ui.getYourRecipesSuccess)
+    .catch(ui.getYourRecipesFailure)
+}
+
 const toggleButtons = event => {
   const id = $(event.target).data('id')
   if ($(`section[data-id='${id}'] > .hidden-buttons`).is(':visible')) {
@@ -102,5 +121,6 @@ module.exports = {
   onDeleteRecipe,
   addUpdateForm,
   onUpdateRecipe,
-  showFullRecipe
+  showFullRecipe,
+  onGetYourRecipes
 }

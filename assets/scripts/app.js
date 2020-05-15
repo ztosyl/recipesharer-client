@@ -21,4 +21,5 @@ $(() => {
   $('.go-to-sign-up').on('click', authEvents.modalSwitchOtherWay)
   $('.recipes').on('click', '.show-full', recipeEvents.showFullRecipe)
   $('.close').on('click', () => $('.messaging').text(''))
+  $('.get-your-recipes').on('click', recipeEvents.onGetYourRecipes)
 })
