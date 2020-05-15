@@ -12,6 +12,17 @@ const showPoster = () => {
   $('.post-recipes').show()
 }
 
+const toggleShowRecipe = event => {
+  const id = $(event.target).data('id')
+  if ($(event.target).text() === 'Show more') {
+    $(`.hidden-div[data-id=${id}]`).show()
+    $(event.target).text('Show less')
+  } else {
+    $(`.hidden-div[data-id=${id}]`).hide()
+    $(event.target).text('Show more')
+  }
+}
+
 const toggleButtons = event => {
   const id = $(event.target).data('id')
   if ($(`section[data-id='${id}'] > .hidden-buttons`).is(':visible')) {
@@ -27,7 +38,6 @@ const addUpdateForm = event => {
   $(`section[data-id="${id}"]`).append(updateRecipeHtml)
   toggleButtons(event)
 }
-
 const onUpdateRecipe = event => {
   event.preventDefault()
   const id = $(event.target).data('id')
@@ -36,14 +46,20 @@ const onUpdateRecipe = event => {
   formData.recipe.ingredients = formData.recipe.ingredients.split('\n')
   formData.recipe.steps = formData.recipe.steps.split('\n')
   formData.recipe.author = store.user._id
-  console.log(formData)
+  delete formData.recipe['recipe']
   api.findOneRecipe(id)
     .then(recipe => {
-      for (const key in recipe) {
-        if (!formData.recipe[key]) {
-          formData.recipe[key] = recipe[key]
+      for (const key in formData.recipe) {
+        const formVal = formData.recipe[key]
+        if (!formVal) {
+          formData.recipe[key] = recipe.recipe[key]
+        } else if (Array.isArray(formVal)) {
+          if (formVal.every(item => item === '')) {
+            formData.recipe[key] = recipe.recipe[key]
+          }
         }
       }
+      delete formData.recipe['recipe']
       return formData
     })
     .then(newRecipe => api.updateRecipe(newRecipe, id))
@@ -84,5 +100,6 @@ module.exports = {
   toggleButtons,
   onDeleteRecipe,
   addUpdateForm,
-  onUpdateRecipe
+  onUpdateRecipe,
+  toggleShowRecipe
 }

@@ -19,4 +19,7 @@ $(() => {
   $('.recipes').on('click', '.delete-recipe', recipeEvents.onDeleteRecipe)
   $('.recipes').on('click', '.show-update-recipe', recipeEvents.addUpdateForm)
   $('.recipes').on('submit', '.update-recipe', recipeEvents.onUpdateRecipe)
+  $('.go-to-sign-in').on('click', authEvents.modalSwitch)
+  $('.go-to-sign-up').on('click', authEvents.modalSwitchOtherWay)
+  $('.recipes').on('click', '.collapse-button', recipeEvents.toggleShowRecipe)
 })

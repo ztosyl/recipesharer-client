@@ -4,6 +4,18 @@ const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
 
+const modalSwitch = function () {
+  $('#sign-up-modal').modal('hide')
+  $('#sign-in-modal').modal('show')
+  $('.messaging').text('')
+}
+
+const modalSwitchOtherWay = function () {
+  $('#sign-in-modal').modal('hide')
+  $('#sign-up-modal').modal('show')
+  $('.messaging').text('')
+}
+
 const onSignUp = event => {
   event.preventDefault()
   const form = event.target
@@ -41,5 +53,7 @@ module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  modalSwitch,
+  modalSwitchOtherWay
 }

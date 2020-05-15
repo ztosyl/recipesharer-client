@@ -1,10 +1,12 @@
 'use strict'
 
 const store = require('../store')
+const authEvents = require('./events')
 
 const signUpSuccess = data => {
-  console.log('Sign up has succeeed. Data is: ' + data)
-  $('.messaging').text('Sign up a success!')
+  $('.sign-up-input').val('')
+  $('.messaging').text('Thanks! You will now be redirected to sign-in.').css('color', 'green')
+  setTimeout(authEvents.modalSwitch, 1000)
 }
 
 const signUpFailure = error => {
@@ -16,22 +18,25 @@ const signInSuccess = data => {
   console.log('Sign in has succeeed. Data is: ' + data)
   store.user = data.user
   $('.messaging').text('Sign in a success!')
+  $('.sign-in-input').val('')
+  $('#sign-in-modal').modal('hide')
   $('.unauthorized').hide()
   $('.authorized').show()
 }
 
 const signInFailure = error => {
   console.log('Sign in has failed. Error is + ' + error)
+  $('.sign-in-input').val('')
   $('.messaging').text('Sign in has failed.')
 }
 
 const changePasswordSuccess = data => {
-  console.log('Password change successful. Data is: ' + data)
+  $('.change-password-input').val('')
   $('.messaging').text('Password change successful!')
 }
 
-const changePasswordFailure = error => {
-  console.log('Password change failed. Error is + ' + error)
+const changePasswordFailure = () => {
+  $('.change-password-input').val('')
   $('.messaging').text('Password change failed.')
 }
 

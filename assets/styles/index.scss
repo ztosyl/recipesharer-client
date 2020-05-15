@@ -1,4 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
+@import './variables';
 
 .authorized {
   display: none;
@@ -21,8 +22,21 @@
   cursor: pointer;
 }
 
-input {
-  margin-left: 10px;
+a {
+  &:not([href]) {
+    color: $link-color;
+    cursor: pointer;
+    text-decoration: underline;
+
+    &:hover {
+      color: $link-color-hover;
+      text-decoration: underline;
+    }
+  }
+}
+
+.col-12 {
+  margin: 5px;
 }
 
 textarea {
@@ -34,8 +48,18 @@ select {
   width: 200px;
 }
 
-.recipes h3 {
-  cursor: pointer;
+section {
+  display: inline;
+}
+
+.hidden-div {
+  display: none;
+}
+
+.recipes {
+  h3 {
+    cursor: pointer;
+  }
 }
 
 .hidden-buttons {

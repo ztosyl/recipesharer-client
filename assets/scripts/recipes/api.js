@@ -16,6 +16,7 @@ const updateRecipe = (data, id) => {
   return $.ajax({
     url: config.apiUrl + '/recipes/' + id,
     method: 'PATCH',
+    data: data,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
