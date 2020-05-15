@@ -37,20 +37,18 @@ const changePasswordSuccess = data => {
 
 const changePasswordFailure = () => {
   $('.change-password-input').val('')
-  $('.messaging').text('Password change failed.')
+  $('.messaging').text('Password change failed. Please try again.')
 }
 
 const signOutSuccess = data => {
-  console.log('Sign out has succeeed. Data is: ' + data)
   store.user = null
-  $('.messaging').text('Sign out a success!')
   $('.unauthorized').show()
   $('.authorized').hide()
+  $('.recipes').html('')
 }
 
-const signOutFailure = error => {
-  console.log('Sign out has failed. Error is + ' + error)
-  $('.messaging').text('Sign out has failed.')
+const signOutFailure = () => {
+  $('.messaging').text('Sign out has failed.').css('color', 'red')
 }
 
 module.exports = {

@@ -41,6 +41,10 @@ const updateRecipeFailure = error => {
   console.error(error)
 }
 
+const findOneRecipeFailure = () => {
+  $('.messaging').text(`Sorry! Owner of this recipe can't be authenticated right now.`)
+}
+
 module.exports = {
   getRecipesSuccess,
   getRecipesFailure,
@@ -49,5 +53,6 @@ module.exports = {
   deleteRecipeSuccess,
   deleteRecipeFailure,
   updateRecipeSuccess,
-  updateRecipeFailure
+  updateRecipeFailure,
+  findOneRecipeFailure
 }

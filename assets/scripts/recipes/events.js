@@ -5,22 +5,24 @@ const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
 const store = require('../store')
 const updateRecipeTemplate = require('../templates/update-recipe-form.handlebars')
+const getOneRecipeTemplate = require('../templates/get-one-recipe.handlebars')
 // const store = require('../store')
 
-const showPoster = () => {
-  $('.recipes').html('')
-  $('.post-recipes').show()
-}
-
-const toggleShowRecipe = event => {
-  const id = $(event.target).data('id')
-  if ($(event.target).text() === 'Show more') {
-    $(`.hidden-div[data-id=${id}]`).show()
-    $(event.target).text('Show less')
-  } else {
-    $(`.hidden-div[data-id=${id}]`).hide()
-    $(event.target).text('Show more')
-  }
+const showFullRecipe = event => {
+  const target = event.target
+  const id = $(target).data('id')
+  api.findOneRecipe(id)
+    .then(recipe => {
+      const getOneRecipeHtml = getOneRecipeTemplate({recipe: recipe})
+      $('.recipes').html(getOneRecipeHtml)
+      return recipe
+    })
+    .then(recipe => {
+      if (recipe.recipe.author === store.user._id) {
+        $(`section[data-id='${id}'] > .hidden-buttons`).show()
+      }
+    })
+    .catch(ui.findOneRecipeFailure)
 }
 
 const toggleButtons = event => {
@@ -96,10 +98,9 @@ const onPostRecipe = event => {
 module.exports = {
   onGetRecipes,
   onPostRecipe,
-  showPoster,
   toggleButtons,
   onDeleteRecipe,
   addUpdateForm,
   onUpdateRecipe,
-  toggleShowRecipe
+  showFullRecipe
 }

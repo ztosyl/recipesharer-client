@@ -1,20 +1,8 @@
 {{#each recipes as |recipe|}}
-  <section class="col-4" data-id="{{recipe._id}}">
+  <section class="col-3" data-id="{{recipe._id}}">
     <h3 data-id="{{recipe._id}}">{{recipe.title}}</h3>
     <h6>{{recipe.meal}} Recipe</h6>
     <h6><strong>Difficulty:</strong> {{recipe.difficulty}}</h6>
-    <button data-id="{{recipe._id}}" class="btn btn-success collapse-button">Show more</button>
-    <div class="hidden-div" data-id="{{recipe._id}}">
-    <h6>Ingredients:</h6>
-    <ol>{{#each recipe.ingredients as |ingredient|}}
-    <li>{{ingredient}}</li>
-    {{/each}}</ol>
-    <h6>Steps:</h6>
-    <ol>{{#each recipe.steps as |step|}}
-    <li>{{step}}</li>
-    {{/each}}</ol>
-  </div>
-    <button data-id="{{recipe._id}}" class="hidden-buttons show-update-recipe btn btn-primary">Update</button>
-    <button data-id="{{recipe._id}}" class="hidden-buttons delete-recipe btn btn-danger">Delete</button>
+    <button data-id="{{recipe._id}}" class="btn btn-success show-full">Show full</button>
   </section>
 {{/each}}
