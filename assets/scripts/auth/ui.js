@@ -1,12 +1,17 @@
 'use strict'
 
 const store = require('../store')
-const authEvents = require('./events')
+
+const modalSwitch = function () {
+  $('#sign-up-modal').modal('hide')
+  $('#sign-in-modal').modal('show')
+  $('.messaging').text('')
+}
 
 const signUpSuccess = data => {
   $('.sign-up-input').val('')
   $('.messaging').text('Thanks! You will now be redirected to sign-in.').css('color', 'green')
-  setTimeout(authEvents.modalSwitch, 1000)
+  setTimeout(modalSwitch, 1000)
 }
 
 const signUpFailure = () => {

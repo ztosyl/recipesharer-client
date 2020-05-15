@@ -1,5 +1,7 @@
 'use strict'
 
+const recipeEvents = require('./events')
+
 const getRecipesTemplate = require('../templates/get-recipes.handlebars')
 
 const getRecipesSuccess = data => {
@@ -19,11 +21,6 @@ const postRecipeSuccess = data => {
 
 const postRecipeFailure = () => {
   $('.bad-messaging').text('Recipe post failed. Please try again later.')
-}
-
-const deleteRecipeSuccess = id => {
-  $(`section[data-id=${id}]`).remove()
-  console.log('Recipe deleted successfully.')
 }
 
 const deleteRecipeFailure = error => {
@@ -59,7 +56,6 @@ module.exports = {
   getRecipesFailure,
   postRecipeSuccess,
   postRecipeFailure,
-  deleteRecipeSuccess,
   deleteRecipeFailure,
   updateRecipeSuccess,
   updateRecipeFailure,

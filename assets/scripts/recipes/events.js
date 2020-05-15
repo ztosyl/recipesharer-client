@@ -25,13 +25,18 @@ const showFullRecipe = event => {
     .catch(ui.findOneRecipeFailure)
 }
 
+const promptDeleteConfirmation = event => {
+  const id = $(event.target).data('id')
+  $('#delete-confirmation-modal').show()
+  $('#delete-confirmation-modal').data('id', id)
+}
+
 const onGetYourRecipes = event => {
   const yourRecipes = []
   const you = store.user._id
   api.getRecipes()
     .then(data => {
       const recipes = data.recipes
-      console.log(you)
       for (let i = 0; i < recipes.length; i++) {
         console.log(recipes[i].author)
         if (recipes[i].author === you) {
@@ -59,6 +64,13 @@ const addUpdateForm = event => {
   $(`section[data-id="${id}"]`).append(updateRecipeHtml)
   toggleButtons(event)
 }
+
+const onGetRecipes = event => {
+  api.getRecipes()
+    .then(ui.getRecipesSuccess)
+    .catch(ui.getRecipesFailure)
+}
+
 const onUpdateRecipe = event => {
   event.preventDefault()
   const id = $(event.target).data('id')
@@ -88,18 +100,38 @@ const onUpdateRecipe = event => {
     .catch(ui.updateRecipeFailure)
 }
 
-const onDeleteRecipe = event => {
-  const id = $(event.target).data('id')
-  console.log(id)
-  api.deleteRecipe(id)
-    .then(data => ui.deleteRecipeSuccess(id))
-    .catch(ui.deleteRecipeSuccess)
+const onDifficultySearch = event => {
+  let keyword
+  const resultRec = []
+  if ($(event.target).hasClass('easy')) {
+    keyword = 'Easy'
+  } else if ($(event.target).hasClass('mod')) {
+    keyword = 'Moderate'
+  } else {
+    keyword = 'Difficult'
+  }
+  api.getRecipes()
+    .then(data => {
+      const recipes = data.recipes
+      for (let i = 0; i < recipes.length; i++) {
+        if (recipes[i].difficulty === keyword) {
+          resultRec.push(recipes[i])
+        }
+      }
+      return resultRec
+    })
+    .then(recipes => ui.getYourRecipesSuccess(recipes))
+    .catch(ui.getRecipesFailure)
 }
 
-const onGetRecipes = event => {
-  api.getRecipes()
-    .then(ui.getRecipesSuccess)
-    .catch(ui.getRecipesFailure)
+const onDeleteRecipe = event => {
+  const id = $('#delete-confirmation-modal').data('id')
+  $('#delete-confirmation-modal').data('id', '')
+  api.deleteRecipe(id)
+    .then(() => {
+      onGetYourRecipes()
+    })
+    .catch(ui.deleteRecipeFailure)
 }
 
 const onPostRecipe = event => {
@@ -122,5 +154,7 @@ module.exports = {
   addUpdateForm,
   onUpdateRecipe,
   showFullRecipe,
-  onGetYourRecipes
+  onGetYourRecipes,
+  promptDeleteConfirmation,
+  onDifficultySearch
 }
