@@ -25,4 +25,7 @@ $(() => {
   $('.recipes').on('click', '.delete-recipe-prompt', recipeEvents.promptDeleteConfirmation)
   $('.delete-recipe').on('click', recipeEvents.onDeleteRecipe)
   $('.difficulty-search').on('click', recipeEvents.onDifficultySearch)
+  $('.meal-search').on('click', recipeEvents.onMealSearch)
+  $('.search-by-ingredients').on('submit', recipeEvents.onSearchByIngredients)
+  $('.search-by-title').on('submit', recipeEvents.onSearchByTitle)
 })

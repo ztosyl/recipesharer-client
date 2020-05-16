@@ -104,7 +104,7 @@
           <option>Dessert</option>
           <option>Side</option>
           <option>Snack</option>
-          <option>Miscellaneous</option>
+          <option>Beverage</option>
         </select>
       <label>Difficulty:</label>
         <select required class="form-control" name="recipe[difficulty]">
@@ -181,6 +181,20 @@
        <button class="btn btn-success" data-toggle="modal" data-target="#post-recipe-modal">POST A RECIPE</button>
        <div class="dropdown">
   <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Search by Meal Type
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item meal-search breakfast">Breakfast</a>
+    <a class="dropdown-item meal-search lunch">Lunch</a>
+    <a class="dropdown-item meal-search dinner">Dinner</a>
+    <a class="dropdown-item meal-search dessert">Dessert</a>
+    <a class="dropdown-item meal-search side">Side</a>
+    <a class="dropdown-item meal-search snack">Snack</a>
+    <a class="dropdown-item meal-search beverage">Beverage</a>
+  </div>
+</div>
+<div class="dropdown">
+  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Search by Difficulty
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -189,6 +203,18 @@
     <a class="dropdown-item difficulty-search dif">Difficult</a>
   </div>
 </div>
+<form class="form-inline search-by-ingredients">
+  <label>Search by Ingredient!</label>
+  <input class="form-control form-control-sm ml-3 w-75" required name="ingredients" type="text" placeholder="Ingredients"
+    aria-label="search">
+    <button type="submit" class="btn btn-success">Search</button>
+</form>
+<form class="form-inline search-by-title">
+  <label>Search by Title!</label>
+  <input class="form-control form-control-sm ml-3 w-75" required name="ingredients" type="text" placeholder="Title"
+    aria-label="search">
+    <button type="submit" class="btn btn-success">Search</button>
+</form>
       <div class="container"><div class="row recipes"></div></div>
       </div>
     </body>

@@ -124,6 +124,132 @@ const onDifficultySearch = event => {
     .catch(ui.getRecipesFailure)
 }
 
+const onMealSearch = event => {
+  let keyword
+  const resultRec = []
+  if ($(event.target).hasClass('breakfast')) {
+    keyword = 'Breakfast'
+  } else if ($(event.target).hasClass('lunch')) {
+    keyword = 'Lunch'
+  } else if ($(event.target).hasClass('dinner')) {
+    keyword = 'Dinner'
+  } else if ($(event.target).hasClass('dessert')) {
+    keyword = 'Dessert'
+  } else if ($(event.target).hasClass('side')) {
+    keyword = 'Side'
+  } else if ($(event.target).hasClass('snack')) {
+    keyword = 'Snack'
+  } else {
+    keyword = 'Beverage'
+  }
+  api.getRecipes()
+    .then(data => {
+      const recipes = data.recipes
+      for (let i = 0; i < recipes.length; i++) {
+        if (recipes[i].meal === keyword) {
+          resultRec.push(recipes[i])
+        }
+      }
+      return resultRec
+    })
+    .then(recipes => ui.getYourRecipesSuccess(recipes))
+    .catch(ui.getRecipesFailure)
+}
+
+const onSearchByIngredients = event => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  const searchQuery = formData.ingredients.toUpperCase()
+  if (searchQuery.includes(' ')) {
+    const queries = searchQuery.split(' ')
+    api.getRecipes()
+      .then(data => {
+        const recipes = data.recipes
+        const result = []
+        for (let i = 0; i < recipes.length; i++) {
+          const currRecipe = recipes[i]
+          const ingredTracker = []
+          for (let z = 0; z < currRecipe.ingredients.length; z++) {
+            const currIngred = currRecipe.ingredients[z].toUpperCase()
+            for (let q = 0; q < queries.length; q++) {
+              const currQuery = queries[q]
+              if (currIngred.includes(currQuery)) {
+                ingredTracker[q] = 'yes'
+              }
+            }
+          }
+          if (ingredTracker.length === queries.length) {
+            if (!(ingredTracker.includes(undefined))) {
+              result.push(currRecipe)
+            }
+          }
+        }
+        return result
+      })
+      .then(result => {
+        if (result.length === 0) {
+          $('.bad-messaging').text('Sorry! No recipes matched your search. Try a different ingredient.')
+        } else {
+          ui.getYourRecipesSuccess(result)
+        }
+      })
+      .catch(ui.getYourRecipeFailure)
+  } else {
+    api.getRecipes()
+      .then(data => {
+        const result = []
+        const recipes = data.recipes
+        for (let i = 0; i < recipes.length; i++) {
+          const currRecipe = recipes[i]
+          for (let z = 0; z < currRecipe.ingredients.length; z++) {
+            const currIngred = currRecipe.ingredients[z].toUpperCase()
+            if (currIngred.includes(searchQuery)) {
+              result.push(currRecipe)
+              break
+            }
+          }
+        }
+        return result
+      })
+      .then(result => {
+        if (result.length === 0) {
+          $('.bad-messaging').text('Sorry! No recipes matched your search. Try a different ingredient.')
+        } else {
+          ui.getYourRecipesSuccess(result)
+        }
+      })
+      .catch(ui.getYourRecipesFailure)
+  }
+}
+
+const onSearchByTitle = event => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  const searchQuery = formData.ingredients.toUpperCase()
+  api.getRecipes()
+    .then(data => {
+      const result = []
+      const recipes = data.recipes
+      for (let i = 0; i < recipes.length; i++) {
+        const currTitle = recipes[i].title.toUpperCase()
+        if (currTitle.includes(searchQuery)) {
+          result.push(recipes[i])
+        }
+      }
+      return result
+    })
+    .then(result => {
+      if (result.length === 0) {
+        $('.bad-messaging').text('Sorry! No recipes matched your search. Try a different ingredient.')
+      } else {
+        ui.getYourRecipesSuccess(result)
+      }
+    })
+    .catch(ui.getYourRecipesFailure)
+}
+
 const onDeleteRecipe = event => {
   const id = $('#delete-confirmation-modal').data('id')
   $('#delete-confirmation-modal').data('id', '')
@@ -156,5 +282,8 @@ module.exports = {
   showFullRecipe,
   onGetYourRecipes,
   promptDeleteConfirmation,
-  onDifficultySearch
+  onDifficultySearch,
+  onMealSearch,
+  onSearchByIngredients,
+  onSearchByTitle
 }
