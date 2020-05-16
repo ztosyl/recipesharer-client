@@ -25,12 +25,6 @@ const showFullRecipe = event => {
     .catch(ui.findOneRecipeFailure)
 }
 
-const promptDeleteConfirmation = event => {
-  const id = $(event.target).data('id')
-  $('#delete-confirmation-modal').show()
-  $('#delete-confirmation-modal').data('id', id)
-}
-
 const onGetYourRecipes = event => {
   const yourRecipes = []
   const you = store.user._id
@@ -38,7 +32,6 @@ const onGetYourRecipes = event => {
     .then(data => {
       const recipes = data.recipes
       for (let i = 0; i < recipes.length; i++) {
-        console.log(recipes[i].author)
         if (recipes[i].author === you) {
           yourRecipes.push(recipes[i])
         }
@@ -49,31 +42,16 @@ const onGetYourRecipes = event => {
     .catch(ui.getYourRecipesFailure)
 }
 
-const toggleButtons = event => {
+const showUpdateRecipe = event => {
   const id = $(event.target).data('id')
-  if ($(`section[data-id='${id}'] > .hidden-buttons`).is(':visible')) {
-    $(`section[data-id='${id}'] > .hidden-buttons`).hide()
-  } else {
-    $(`section[data-id='${id}'] > .hidden-buttons`).show()
-  }
-}
-
-const addUpdateForm = event => {
-  const id = $(event.target).data('id')
-  const updateRecipeHtml = updateRecipeTemplate({id: id})
-  $(`section[data-id="${id}"]`).append(updateRecipeHtml)
-  toggleButtons(event)
-}
-
-const onGetRecipes = event => {
-  api.getRecipes()
-    .then(ui.getRecipesSuccess)
-    .catch(ui.getRecipesFailure)
+  $('#update-recipe-modal').modal('show')
+  $('#update-recipe-modal').data('id', id)
 }
 
 const onUpdateRecipe = event => {
   event.preventDefault()
-  const id = $(event.target).data('id')
+  const id = $('#update-recipe-modal').data('id')
+  $('#update-recipe-modal').data('id', '')
   const form = event.target
   const formData = getFormFields(form)
   formData.recipe.ingredients = formData.recipe.ingredients.split('\n')
@@ -98,6 +76,12 @@ const onUpdateRecipe = event => {
     .then(newRecipe => api.updateRecipe(newRecipe, id))
     .then(ui.updateRecipeSuccess)
     .catch(ui.updateRecipeFailure)
+}
+
+const onGetRecipes = event => {
+  api.getRecipes()
+    .then(ui.getRecipesSuccess)
+    .catch(ui.getRecipesFailure)
 }
 
 const onDifficultySearch = event => {
@@ -250,12 +234,19 @@ const onSearchByTitle = event => {
     .catch(ui.getYourRecipesFailure)
 }
 
+const promptDeleteConfirmation = event => {
+  const id = $(event.target).data('id')
+  $('#delete-confirmation-modal').modal('show')
+  $('#delete-confirmation-modal').data('id', id)
+}
+
 const onDeleteRecipe = event => {
   const id = $('#delete-confirmation-modal').data('id')
   $('#delete-confirmation-modal').data('id', '')
   api.deleteRecipe(id)
     .then(() => {
-      onGetYourRecipes()
+      $('#delete-confirmation-modal').modal('hide')
+      onGetYourRecipes(event)
     })
     .catch(ui.deleteRecipeFailure)
 }
@@ -275,9 +266,8 @@ const onPostRecipe = event => {
 module.exports = {
   onGetRecipes,
   onPostRecipe,
-  toggleButtons,
   onDeleteRecipe,
-  addUpdateForm,
+  showUpdateRecipe,
   onUpdateRecipe,
   showFullRecipe,
   onGetYourRecipes,

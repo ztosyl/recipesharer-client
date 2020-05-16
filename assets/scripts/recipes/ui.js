@@ -16,7 +16,6 @@ const getRecipesFailure = () => {
 const postRecipeSuccess = data => {
   $('.post-recipes').hide()
   $('.messaging').text('Recipe posted successfully!')
-  console.log('Recipe posted successfully. Data: ' + data)
 }
 
 const postRecipeFailure = () => {
@@ -24,8 +23,8 @@ const postRecipeFailure = () => {
 }
 
 const deleteRecipeFailure = error => {
-  $('.messaging').text('Recipe deletion failed. Please try again later.')
-  console.error(error)
+  $('.bad-messaging').text('Recipe deletion failed. Please try again later.')
+  console.error('Failed. Error is: ', error)
 }
 
 const updateRecipeSuccess = data => {
