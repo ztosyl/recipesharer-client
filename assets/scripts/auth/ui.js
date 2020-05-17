@@ -15,16 +15,16 @@ const signUpSuccess = data => {
 }
 
 const signUpFailure = () => {
-  $('.messaging').text('Sign up has failed. Try again.')
+  $('.bad-messaging').text('Sign up has failed. Try again.')
 }
 
 const signInSuccess = data => {
   store.user = data.user
-  $('.messaging').text('Sign in a success!')
   $('.sign-in-input').val('')
   $('#sign-in-modal').modal('hide')
   $('.unauthorized').hide()
   $('.authorized').show()
+  $('.navbar-authorized').css('visibility', 'visible')
 }
 
 const signInFailure = error => {
@@ -45,8 +45,9 @@ const changePasswordFailure = () => {
 
 const signOutSuccess = data => {
   store.user = null
-  $('.unauthorized').show()
-  $('.authorized').hide()
+  $('.unauthorized').hide()
+  $('.authorized').show()
+  $('.navbar-authorized').css('visibility', 'hidden')
   $('.recipes').html('')
 }
 

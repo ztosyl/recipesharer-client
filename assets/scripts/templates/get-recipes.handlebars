@@ -1,8 +1,8 @@
 {{#each recipes as |recipe|}}
-  <section class="col-3" data-id="{{recipe._id}}">
+  <section class="col-5" data-id="{{recipe._id}}">
     <h3 data-id="{{recipe._id}}">{{recipe.title}}</h3>
     <h6>{{recipe.meal}} Recipe</h6>
     <h6><strong>Difficulty:</strong> {{recipe.difficulty}}</h6>
-    <button data-id="{{recipe._id}}" class="btn btn-success show-full">Show full</button>
+    <button data-id="{{recipe._id}}" class="btn btn-secondary show-full">Show full</button>
   </section>
 {{/each}}

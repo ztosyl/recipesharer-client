@@ -3,17 +3,51 @@
 
 body {
   background-image: $background-image;
+  font-family: $body-font;
+}
+
+.opener {
+  margin-top: 35px;
 }
 
 nav {
   background-color: $accent;
 }
 
-.navbar-light .navbar-nav .nav-link {
-  color: $font-color-light-accent;
+.navbar-light {
+  background-color: $invisible-navbar;
+}
+
+.header {
+  display: inline-flex;
+  justify-content: flex-end;
+  margin: 0;
+  width: 100%;
+}
+
+small {
+  margin: 0 10px;
+}
+
+h1 {
+  align-self: flex-start;
+  font-family: $title-font;
+}
+
+h3 {
+  font-family: $title-font;
+}
+
+a {
+  color: $accent;
+  cursor: pointer;
 
   &:hover {
     color: $font-color-light-accent-hover;
+  }
+
+  .navbar-anchor {
+    color: $font-color-light-accent;
   }
 }
 
@@ -24,16 +58,82 @@ section {
   padding: 5px;
 }
 
-.btn {
-  margin: 5px;
+.title-font {
+  font-family: $title-font;
+}
+
+.heart {
+  color: $font-color-light-accent;
+  font-family: $title-font;
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.nav-btn {
+  background-color: $font-color-light-accent;
+  border: $border-button;
+  border-radius: 30px;
+  color: $accent;
+  margin: 7px 20px;
+    &:hover {
+      background-color: $font-color-light-accent-hover;
+      border: $border-inverse;
+    }
+    &:active {
+      background-color: $font-color-light-accent-hover;
+      border: $border-inverse;
+    }
+    &:visited {
+      background-color: $font-color-light-accent;
+      border: $border-inverse;
+      border-radius: 30px;
+      color: $accent;
+      margin: 7px 20px;
+    }
+}
+
+.submit-btn {
+  background-color: $font-color-light-accent;
+  border: $border-button;
+  border-radius: 15px;
+  color: $accent;
+  margin-left: 5px;
+  &:hover {
+    background-color: $font-color-light-accent-hover;
+    border: $border-inverse;
+  }
+  &:active {
+    background-color: $font-color-light-accent-hover;
+    border: $border-inverse;
+  }
+  &:visited {
+    background-color: $font-color-light-accent;
+    border: $border-inverse;
+    border-radius: 30px;
+    color: $accent;
+    margin: 7px 20px;
+  }
 }
 
 h1 {
   color: $accent;
 }
 
+.search-inputs {
+  margin-top: 50px;
+}
+
+.search-label {
+  color: $accent;
+  margin-top:10px;
+}
+
 .authorized {
   display: none;
+}
+
+.navbar-authorized {
+  visibility: hidden;
 }
 
 .title {
@@ -49,19 +149,6 @@ h1 {
   cursor: pointer;
 }
 
-a {
-  &:not([href]) {
-    color: $link-color;
-    cursor: pointer;
-    text-decoration: underline;
-
-    &:hover {
-      color: $link-color-hover;
-      text-decoration: underline;
-    }
-  }
-}
-
 .col-12 {
   margin: 5px;
 }
@@ -69,7 +156,13 @@ a {
 textarea {
   height: 100px;
   margin-left: 10px;
-  width: 50%;
+  width: 70%;
+}
+
+.form-label {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
 .form-control {
