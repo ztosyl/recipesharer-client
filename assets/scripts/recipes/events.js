@@ -20,7 +20,7 @@ const showFullRecipe = event => {
     .then(recipe => {
       if (recipe.recipe.author === store.user._id) {
         $(`section[data-id='${id}'] > .hidden-buttons`).show()
-        $(`.comment-form-sect[data-id='${id}']`).hide()
+        $(`.comment-form-sect[data-id='${id}']`).css('visibility', 'hidden')
       }
     })
     .catch(ui.findOneRecipeFailure)
@@ -316,6 +316,20 @@ const onPostRecipe = event => {
     .catch(ui.postRecipeFailure)
 }
 
+const onCreateComment = event => {
+  event.preventDefault()
+  const form = event.target
+  const id = $(event.target).data('id')
+  const formData = getFormFields(form)
+  console.log(formData)
+  api.createComment(id, formData)
+    .then(ui.createCommentSuccess)
+    .then(() => {
+      showFullRecipe(event)
+    })
+    .catch(ui.createCommentFailure)
+}
+
 module.exports = {
   onGetRecipes,
   onPostRecipe,
@@ -328,5 +342,6 @@ module.exports = {
   onDifficultySearch,
   onMealSearch,
   onSearchByIngredients,
-  onSearchByTitle
+  onSearchByTitle,
+  onCreateComment
 }

@@ -55,6 +55,16 @@ const getYourRecipesFailure = () => {
   $('.messaging').text('Sorry! Recipes could not be found at this time. Please try again.')
 }
 
+const createCommentSuccess = () => {
+  $('#messaging-modal').modal('show')
+  $('.messaging').text('Comment created successfully!')
+}
+
+const createCommentFailure = () => {
+  $('#messaging-modal').modal('show')
+  $('.messaging').text('Comment creation failed. Please try again.')
+}
+
 module.exports = {
   getRecipesSuccess,
   getRecipesFailure,
@@ -65,5 +75,7 @@ module.exports = {
   updateRecipeFailure,
   findOneRecipeFailure,
   getYourRecipesSuccess,
-  getYourRecipesFailure
+  getYourRecipesFailure,
+  createCommentSuccess,
+  createCommentFailure
 }

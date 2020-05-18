@@ -13,11 +13,20 @@
   <button data-id="{{recipe.recipe._id}}" class="hidden-buttons show-update-recipe btn btn-secondary">Update</button>
   <button data-id="{{recipe.recipe._id}}" class="hidden-buttons delete-recipe-prompt btn btn-danger">Delete</button>
 </section>
+<section class="col-6">
+<h3>Comments:</h3>
+  {{#each recipe.recipe.comments as |comment|}}
+  <hr>
+  <h4>{{comment.title}}</h4>
+  <p>{{comment.body}}</p>
+  <hr>
+  {{/each}}
+</section>
 <section data-id="{{recipe.recipe._id}}" class="comment-form-sect col-5">
-  <form class="comment-form">
+  <form data-id="{{recipe.recipe._id}}" class="comment-form">
     <label>Like it? Hate it? Give feedback here:</label>
     <input class="comment-title" type="text" name="comment[title]" required placeholder="Title">
     <textarea name="comment[body]" required placeholder="Comment"></textarea>
-    <button class="btn btn-secondary" type="submit">Post comment</button>
+    <button type="submit" class="btn btn-secondary">Post comment</button>
   </form>
 </section>
