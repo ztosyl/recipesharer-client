@@ -2,21 +2,20 @@
 
 const store = require('../store')
 
-const modalSwitch = function () {
-  $('#sign-up-modal').modal('hide')
-  $('#sign-in-modal').modal('show')
-  $('.messaging').text('')
-}
-
 const signUpSuccess = data => {
   $('.sign-up-input').val('')
-  $('.messaging').text('Thanks! You will now be redirected to sign-in.').css('color', 'green')
-  setTimeout(modalSwitch, 1000)
+  $('#sign-up-modal').modal('hide')
+  $('#messaging-modal').modal('show')
+  $('.messaging').text('Thanks! You will now be redirected to sign-in.')
+  setTimeout(() => {
+    $('#messaging-modal').modal('hide')
+    $('.messaging').text('')
+    $('#sign-in-modal').modal('show')
+  }, 1500)
 }
 
 const signUpFailure = () => {
   $('.sign-up-input').val('')
-  $('#messaging-modal').modal('show')
   $('.messaging').text('Sign up has failed. Please try again.')
 }
 
@@ -47,6 +46,7 @@ const changePasswordSuccess = data => {
 
 const changePasswordFailure = () => {
   $('.change-password-input').val('')
+  $('#messaging-modal').modal('show')
   $('.messaging').text('Password change failed. Please try again.')
 }
 

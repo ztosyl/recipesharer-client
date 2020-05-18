@@ -5,7 +5,7 @@
 'use strict'
 
 const average = (numArray) => {
-if (!numArray) {
+  if (!numArray) {
     return 'None.'
   } else if (numArray.length === 0) {
     return 'None.'

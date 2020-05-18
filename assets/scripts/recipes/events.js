@@ -250,7 +250,7 @@ const onSearchByTitle = event => {
         $('.title-search').val('')
         if (result.length === 0) {
           $('#messaging-modal').modal('show')
-          $('.messaging').text('Sorry! No recipes matched your search. Try a different ingredient.')
+          $('.messaging').text('Sorry! No recipes matched your search. Try a different title.')
         } else {
           ui.getYourRecipesSuccess(result)
         }
