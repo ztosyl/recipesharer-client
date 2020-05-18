@@ -45,10 +45,21 @@ const postRecipe = data => {
 }
 
 const deleteRecipe = id => {
-  console.log(id)
   return $.ajax({
     url: config.apiUrl + '/recipes/' + id,
     method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const createComment = (id, data) => {
+  return $.ajax({
+    url: config.apiUrl + '/recipes/' + id + '/comments',
+    method: 'PATCH',
+    contentType: 'application/json',
+    data: JSON.stringify(data),
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
@@ -60,5 +71,6 @@ module.exports = {
   postRecipe,
   deleteRecipe,
   findOneRecipe,
-  updateRecipe
+  updateRecipe,
+  createComment
 }
