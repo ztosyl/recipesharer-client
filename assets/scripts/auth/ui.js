@@ -16,6 +16,7 @@ const signUpSuccess = data => {
 
 const signUpFailure = () => {
   $('.sign-up-input').val('')
+  $('#messaging-modal').modal('show')
   $('.messaging').text('Sign up has failed. Please try again.')
 }
 
