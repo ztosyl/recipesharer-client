@@ -18846,13 +18846,13 @@ module.exports = exports['default'];
 var Handlebars = __webpack_require__(136);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data,blockParams) {
-    return "\r\n  <li>"
+    return "\n  <li>"
     + container.escapeExpression(container.lambda(blockParams[0][0], depth0))
-    + "</li>\r\n  ";
+    + "</li>\n  ";
 },"3":function(container,depth0,helpers,partials,data,blockParams) {
-    return "\r\n  <li>"
+    return "\n  <li>"
     + container.escapeExpression(container.lambda(blockParams[0][0], depth0))
-    + "</li>\r\n  ";
+    + "</li>\n  ";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data,blockParams) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -18861,25 +18861,25 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
         return undefined
     };
 
-  return "<section class='col=9' data-id=\""
+  return "<section class='col-11' data-id=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"_id") : stack1), depth0))
-    + "\">\r\n  <h3 data-id=\""
+    + "\">\n  <h3 data-id=\""
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"_id") : stack1), depth0))
     + "\">"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"title") : stack1), depth0))
-    + "</h3>\r\n  <h6>"
+    + "</h3>\n  <h6>"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"meal") : stack1), depth0))
-    + " Recipe</h6>\r\n  <h6><strong>Difficulty:</strong> "
+    + " Recipe</h6>\n  <h6><strong>Difficulty:</strong> "
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"difficulty") : stack1), depth0))
-    + "</h6>\r\n  <h6>Ingredients:</h6>\r\n  <ol>"
+    + "</h6>\n  <h6>Ingredients:</h6>\n  <ol>"
     + ((stack1 = lookupProperty(helpers,"each").call(alias3,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"ingredients") : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 1, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":6,"column":6},"end":{"line":8,"column":11}}})) != null ? stack1 : "")
-    + "</ol>\r\n  <h6>Steps:</h6>\r\n  <ol>"
+    + "</ol>\n  <h6>Steps:</h6>\n  <ol>"
     + ((stack1 = lookupProperty(helpers,"each").call(alias3,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"steps") : stack1),{"name":"each","hash":{},"fn":container.program(3, data, 1, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":10,"column":6},"end":{"line":12,"column":11}}})) != null ? stack1 : "")
-    + "</ol>\r\n  <button data-id=\""
+    + "</ol>\n  <button data-id=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"_id") : stack1), depth0))
-    + "\" class=\"hidden-buttons show-update-recipe btn btn-secondary\">Update</button>\r\n  <button data-id=\""
+    + "\" class=\"hidden-buttons show-update-recipe btn btn-secondary\">Update</button>\n  <button data-id=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"_id") : stack1), depth0))
-    + "\" class=\"hidden-buttons delete-recipe-prompt btn btn-danger\">Delete</button>\r\n</section>\r\n";
+    + "\" class=\"hidden-buttons delete-recipe-prompt btn btn-danger\">Delete</button>\n</section>\n";
 },"useData":true,"useBlockParams":true});
 
 /***/ }),
