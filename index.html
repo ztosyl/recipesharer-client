@@ -93,7 +93,7 @@
 <div class="modal-body row d-flex">
   <div class="form-group">
    <form class="post-recipes">
-    <input class="title form-label" required type="text" name="recipe[title]" placeholder="Recipe Title">
+    <input class="title form-label post-field" required type="text" name="recipe[title]" placeholder="Recipe Title">
       <label class="form-label">Type of recipe:</label>
         <select required class="form-control" name="recipe[meal]">
           <option>Breakfast</option>
@@ -113,12 +113,12 @@
     <div class='ingredients'>
     <label class="title form-label">Ingredients:</label>
     <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each new ingredient on a new line.</small>
-    <textarea name="recipe[ingredients]" required placeholder="Ingredients go here!"></textarea>
+    <textarea class="post-field" name="recipe[ingredients]" required placeholder="Ingredients go here!"></textarea>
   </div>
     <div class='steps'>
     <label class="title form-label">Steps:</label>
     <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each new ingredient on a new line. Don't add numbers or dashes before the steps!</small>
-    <textarea name="recipe[steps]" required placeholder="Steps go here!"></textarea>
+    <textarea class="post-field" name="recipe[steps]" required placeholder="Steps go here!"></textarea>
     </div>
     <button type="submit" class="btn-secondary btn form-label">Post Recipe</button>
    </form>
@@ -142,7 +142,7 @@
 <div class="modal-body row d-flex">
   <div class="form-group">
    <form class="update-recipe">
-    <input class="title form-label" type="text" name="recipe[title]" placeholder="Recipe Title">
+    <input class="title form-label update-field" type="text" name="recipe[title]" placeholder="Recipe Title">
       <label class="form-label">Type of recipe:</label>
         <select class="form-control" name="recipe[meal]">
           <option>Breakfast</option>
@@ -162,12 +162,12 @@
     <div class='ingredients'>
     <label class="title form-label">Ingredients:</label>
     <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each new ingredient on a new line.</small>
-    <textarea name="recipe[ingredients]" placeholder="Ingredients go here!"></textarea>
+    <textarea class="update-field" name="recipe[ingredients]" placeholder="Ingredients go here!"></textarea>
   </div>
     <div class='steps'>
     <label class="title form-label">Steps:</label>
     <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each new ingredient on a new line. Don't add numbers or dashes before the steps!</small>
-    <textarea name="recipe[steps]" placeholder="Steps go here!"></textarea>
+    <textarea class="update-field" name="recipe[steps]" placeholder="Steps go here!"></textarea>
     </div>
     <button type="submit" class="update-recipe-btn btn-secondary form-label btn">Update Recipe</button>
    </form>

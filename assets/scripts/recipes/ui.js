@@ -13,8 +13,8 @@ const getRecipesFailure = () => {
 }
 
 const postRecipeSuccess = data => {
-  $('.post-recipes').val('')
-  $('.post-recipes').modal('hide')
+  $('.post-field').val('')
+  $('#post-recipe-modal').modal('hide')
   $('#messaging-modal').modal('show')
   $('.messaging').text('Recipes posted successfully!')
 }
@@ -31,6 +31,7 @@ const deleteRecipeFailure = () => {
 
 const updateRecipeSuccess = data => {
   $('#update-recipe-modal').modal('hide')
+  $('.update-field').val('')
   $('#messaging-modal').modal('show')
   $('.messaging').text('Recipe update succeeded!')
 }
@@ -57,22 +58,22 @@ const getYourRecipesFailure = () => {
 
 const createCommentSuccess = () => {
   $('#messaging-modal').modal('show')
-  $('.messaging').text('Comment created successfully!')
+  $('.messaging').text('Comment posted successfully!')
 }
 
 const createCommentFailure = () => {
   $('#messaging-modal').modal('show')
-  $('.messaging').text('Comment creation failed. Please try again.')
+  $('.messaging').text('Comment could not be posted at this time. Please try again.')
 }
 
 const postRatingSuccess = () => {
   $('#messaging-modal').modal('show')
-  $('.messaging').text('Rating created successfully!')
+  $('.messaging').text('Rating posted successfully!')
 }
 
 const postRatingFailure = () => {
   $('#messaging-modal').modal('show')
-  $('.messaging').text('Rating creation failed. Please try again.')
+  $('.messaging').text('Rating could not be posted at this time. Please try again.')
 }
 
 module.exports = {

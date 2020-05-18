@@ -299,7 +299,7 @@ const onDeleteRecipe = event => {
   api.deleteRecipe(id)
     .then(() => {
       $('#delete-confirmation-modal').modal('hide')
-      onGetYourRecipes(event)
+      onGetRecipes()
     })
     .catch(ui.deleteRecipeFailure)
 }
@@ -313,6 +313,9 @@ const onPostRecipe = event => {
   formData.recipe.author = store.user._id
   api.postRecipe(formData)
     .then(ui.postRecipeSuccess)
+    .then(() => {
+      onGetRecipes()
+    })
     .catch(ui.postRecipeFailure)
 }
 
