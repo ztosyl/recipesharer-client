@@ -1,7 +1,5 @@
 'use strict'
 
-const recipeEvents = require('./events')
-
 const getRecipesTemplate = require('../templates/get-recipes.handlebars')
 
 const getRecipesSuccess = data => {
@@ -10,35 +8,41 @@ const getRecipesSuccess = data => {
 }
 
 const getRecipesFailure = () => {
-  $('.bad-messaging').text('Recipe search failed. Please try again later.')
+  $('#messaging-modal').modal('show')
+  $('.messaging').text(`Sorry! Recipes could not be found at this time. Please try again.`)
 }
 
 const postRecipeSuccess = data => {
-  $('.post-recipes').hide()
-  $('.messaging').text('Recipe posted successfully!')
+  $('.post-recipes').val('')
+  $('.post-recipes').modal('hide')
+  $('#messaging-modal').modal('show')
+  $('.messaging').text('Recipes posted successfully!')
 }
 
 const postRecipeFailure = () => {
-  $('.bad-messaging').text('Recipe post failed. Please try again later.')
+  $('#messaging-modal').modal('show')
+  $('.messaging').text('Sorry! Recipe post failed. Please try again.')
 }
 
-const deleteRecipeFailure = error => {
-  $('.bad-messaging').text('Recipe deletion failed. Please try again later.')
-  console.error('Failed. Error is: ', error)
+const deleteRecipeFailure = () => {
+  $('#messaging-modal').modal('show')
+  $('.messaging').text('Sorry! Recipe could not be deleted. Please try again.')
 }
 
 const updateRecipeSuccess = data => {
+  $('#update-recipe-modal').modal('hide')
+  $('#messaging-modal').modal('show')
   $('.messaging').text('Recipe update succeeded!')
-  $('.recipes').html('')
 }
 
-const updateRecipeFailure = error => {
-  $('.bad-messaging').text('Recipe update failed. Please try again later.')
-  console.error(error)
+const updateRecipeFailure = () => {
+  $('#messaging-modal').modal('show')
+  $('.messaging').text('Sorry! Recipe update failed. Please try again.')
 }
 
 const findOneRecipeFailure = () => {
-  $('.bad-messaging').text(`Sorry! Owner of this recipe can't be authenticated right now.`)
+  $('#messaging-modal').modal('show')
+  $('.messaging').text('Sorry! Recipe owner could not be authenticated. Recipe will be unable to be updated or deleted.')
 }
 
 const getYourRecipesSuccess = data => {
@@ -47,7 +51,8 @@ const getYourRecipesSuccess = data => {
 }
 
 const getYourRecipesFailure = () => {
-  $('.bad-messaging').text(`Sorry! Your recipes couldn't be reached at this time. Please try again later.`)
+  $('#messaging-modal').modal('show')
+  $('.messaging').text('Sorry! Recipes could not be found at this time. Please try again.')
 }
 
 module.exports = {

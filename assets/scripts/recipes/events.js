@@ -4,7 +4,7 @@ const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
 const store = require('../store')
-const updateRecipeTemplate = require('../templates/update-recipe-form.handlebars')
+// const updateRecipeTemplate = require('../templates/update-recipe-form.handlebars')
 const getOneRecipeTemplate = require('../templates/get-one-recipe.handlebars')
 // const store = require('../store')
 
@@ -51,6 +51,7 @@ const showUpdateRecipe = event => {
 const onUpdateRecipe = event => {
   event.preventDefault()
   const id = $('#update-recipe-modal').data('id')
+  $(event.target).data('id', id)
   $('#update-recipe-modal').data('id', '')
   const form = event.target
   const formData = getFormFields(form)
@@ -75,6 +76,7 @@ const onUpdateRecipe = event => {
     })
     .then(newRecipe => api.updateRecipe(newRecipe, id))
     .then(ui.updateRecipeSuccess)
+    .then(() => showFullRecipe(event))
     .catch(ui.updateRecipeFailure)
 }
 
@@ -172,8 +174,10 @@ const onSearchByIngredients = event => {
         return result
       })
       .then(result => {
+        $('.ingred-search').val('')
         if (result.length === 0) {
-          $('.bad-messaging').text('Sorry! No recipes matched your search. Try a different ingredient.')
+          $('#messaging-modal').modal('show')
+          $('.messaging').text('Sorry! No recipes matched your search. Try a different ingredient.')
         } else {
           ui.getYourRecipesSuccess(result)
         }
@@ -197,8 +201,10 @@ const onSearchByIngredients = event => {
         return result
       })
       .then(result => {
+        $('.ingred-search').val('')
         if (result.length === 0) {
-          $('.bad-messaging').text('Sorry! No recipes matched your search. Try a different ingredient.')
+          $('#messaging-modal').modal('show')
+          $('.messaging').text('Sorry! No recipes matched your search. Try a different ingredient.')
         } else {
           ui.getYourRecipesSuccess(result)
         }
@@ -211,27 +217,73 @@ const onSearchByTitle = event => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  const searchQuery = formData.ingredients.toUpperCase()
-  api.getRecipes()
-    .then(data => {
-      const result = []
-      const recipes = data.recipes
-      for (let i = 0; i < recipes.length; i++) {
-        const currTitle = recipes[i].title.toUpperCase()
-        if (currTitle.includes(searchQuery)) {
-          result.push(recipes[i])
+  const searchQuery = formData.title.toUpperCase()
+  if (searchQuery.includes(' ')) {
+    const queries = searchQuery.split(' ')
+    api.getRecipes()
+      .then(data => {
+        const recipes = data.recipes
+        const result = []
+        for (let i = 0; i < recipes.length; i++) {
+          const currRecipe = recipes[i]
+          const titleTracker = []
+          const titleWords = currRecipe.title.split(' ')
+          for (let z = 0; z < titleWords.length; z++) {
+            const currTitleWord = titleWords[z].toUpperCase()
+            for (let q = 0; q < queries.length; q++) {
+              const currQuery = queries[q]
+              if (currTitleWord.includes(currQuery)) {
+                titleTracker[q] = 'yes'
+              }
+            }
+          }
+          if (titleTracker.length === queries.length) {
+            if (!(titleTracker.includes(undefined))) {
+              result.push(currRecipe)
+            }
+          }
         }
-      }
-      return result
-    })
-    .then(result => {
-      if (result.length === 0) {
-        $('.bad-messaging').text('Sorry! No recipes matched your search. Try a different ingredient.')
-      } else {
-        ui.getYourRecipesSuccess(result)
-      }
-    })
-    .catch(ui.getYourRecipesFailure)
+        return result
+      })
+      .then(result => {
+        $('.title-search').val('')
+        if (result.length === 0) {
+          $('#messaging-modal').modal('show')
+          $('.messaging').text('Sorry! No recipes matched your search. Try a different ingredient.')
+        } else {
+          ui.getYourRecipesSuccess(result)
+        }
+      })
+      .catch(ui.getYourRecipeFailure)
+  } else {
+    api.getRecipes()
+      .then(data => {
+        const result = []
+        const recipes = data.recipes
+        for (let i = 0; i < recipes.length; i++) {
+          const currRecipe = recipes[i]
+          const titleWords = currRecipe.title.split(' ')
+          for (let z = 0; z < titleWords.length; z++) {
+            const currTitleWord = titleWords[z].toUpperCase()
+            if (currTitleWord.includes(searchQuery)) {
+              result.push(currRecipe)
+              break
+            }
+          }
+        }
+        return result
+      })
+      .then(result => {
+        $('.title-search').val('')
+        if (result.length === 0) {
+          $('#messaging-modal').modal('show')
+          $('.messaging').text('Sorry! No recipes matched your search. Try a different ingredient.')
+        } else {
+          ui.getYourRecipesSuccess(result)
+        }
+      })
+      .catch(ui.getYourRecipesFailure)
+  }
 }
 
 const promptDeleteConfirmation = event => {

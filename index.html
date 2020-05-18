@@ -29,7 +29,6 @@
           <div class="col-12"><input class="sign-up-input" required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"></div>
           <div class="col-12"><button class="btn-secondary btn" type="submit">Sign Up</button></div>
         </form>
-      <div class="messaging col-12"></div>
       </div>
       <div class="modal-footer">
       <a class="go-to-sign-in dummy-link">Already have an account? Click here!</a>
@@ -53,7 +52,6 @@
     <div class="col-12"><input class="sign-in-input" required type="password" name="credentials[password]" placeholder="Password"></div>
     <div class="col-12"><button class="btn-secondary btn" type="submit">Sign In</button></div>
   </form>
-  <div class="messaging col-12"></div>
   </div>
   <div class="modal-footer">
 <a class="go-to-sign-up dummy-link" >Don't have an account? Click here!</a>
@@ -76,7 +74,6 @@
     <div class="col-12"><input class="change-password-input" required type="password" name="passwords[new]" placeholder="New Password"></div>
     <div class="col-12"><button class="btn-secondary btn" type="submit">Change Password</button></div>
   </form>
-  <div class="messaging col-12"></div>
 </div>
 <div class="modal-footer">
   <div class="col-12"><button class="btn btn-danger close-password close-modal" data-toggle="modal" data-dismiss="modal">Close</button></div>
@@ -126,7 +123,6 @@
     <button type="submit" class="btn-secondary btn form-label">Post Recipe</button>
    </form>
    </div>
-  <div class="messaging col-12"></div>
 </div>
 <div class="modal-footer">
   <div class="col-12"><button class="btn btn-danger close-modal" data-toggle="modal" data-dismiss="modal">Close</button></div>
@@ -176,7 +172,6 @@
     <button type="submit" class="update-recipe-btn btn-secondary form-label btn">Update Recipe</button>
    </form>
    </div>
-  <div class="messaging col-12"></div>
 </div>
 <div class="modal-footer">
   <div class="col-12"><button class="btn btn-danger close-update close-modal" data-toggle="modal" data-dismiss="modal">Close</button></div>
@@ -184,7 +179,7 @@
 </div>
 </div>
 </div>
-<div class="modal delete-confirmation-elem" id="delete-confirmation-modal" tabindex="-1" role="dialog">
+<div class="modal fade container delete-confirmation-elem" id="delete-confirmation-modal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -195,6 +190,23 @@
       <div class="modal-body">
         <p>Are you SURE you want to delete this recipe?</p>
         <button type="button" class="btn btn-danger delete-recipe-btn delete-confirmation-elem">Delete Recipe</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary warning-close" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade container" id="messaging-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close warning-close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="messaging"></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary warning-close" data-dismiss="modal">Close</button>
@@ -284,26 +296,31 @@
     </li>
   </ul>
 </nav>
-      <div class="bad-messaging"></div>
+
+
       <div class="container">
-        <div class="row">
-        <div class="col-5 authorized search-inputs">
-          <form class="form-inline search-by-ingredients">
+        <div class="authorized">
+        <div class="row search-inputs">
+          <form class="col-6 form-inline search-by-ingredients">
             <label class="title-font search-label">Search by Ingredient:</label>
-            <input class="form-control form-control-sm ml-3 w-75" required name="ingredients" type="text" placeholder="Ingredients"
+            <input class="form-control ingred-search form-control-sm ml-3 w-75" required name="ingredients" type="text" placeholder="Ingredients"
               aria-label="search">
               <button type="submit" class="btn btn-success submit-btn title-font">Search</button>
           </form>
-          <form class="form-inline search-by-title">
+          <form class="col-5 form-inline search-by-title">
             <label class="title-font search-label">Search by Title:</label>
-            <input class="form-control form-control-sm ml-3 w-75" required name="ingredients" type="text" placeholder="Title"
+            <input class="form-control title-search form-control-sm ml-3 w-75" required name="title" type="text" placeholder="Title"
               aria-label="search">
               <button type="submit" class="btn btn-success submit-btn title-font">Search</button>
           </form>
         </div>
-        <div class="row recipes col-6">
-          <section class="opener">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</section></div></div>
         </div>
-      </div>
+        <div class="recipes row">
+          <section class="opener col-11">Stuck at home with nothing to do? Of course you are! <br> <br>
+            Welcome to <span class=title-font>&#10084;Share-a-Recipe&#10084;</span>, where you can find recipes to make your wildest culinary dreams come true! (Or at least find a new way to pass the time.) <br> <br>
+            To get started on this epicurean adventure, sign in above to see recipes posted by users from anywhere, and post and edit your own!
+          </section>
+        </div>
+        </div>
     </body>
 </html>

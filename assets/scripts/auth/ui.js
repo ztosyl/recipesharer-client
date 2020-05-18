@@ -15,7 +15,9 @@ const signUpSuccess = data => {
 }
 
 const signUpFailure = () => {
-  $('.bad-messaging').text('Sign up has failed. Try again.')
+  $('.sign-up-input').val('')
+  $('#messaging-modal').modal('show')
+  $('.messaging').text('Sign up has failed. Please try again.')
 }
 
 const signInSuccess = data => {
@@ -25,16 +27,21 @@ const signInSuccess = data => {
   $('.unauthorized').hide()
   $('.authorized').show()
   $('.navbar-authorized').css('visibility', 'visible')
+  $('#messaging-modal').modal('show')
+  $('.messaging').text('Sign in successful!')
 }
 
 const signInFailure = error => {
   console.log('Sign in has failed. Error is + ' + error)
   $('.sign-in-input').val('')
   $('.messaging').text('Sign in has failed.')
+  $('#messaging-modal').modal('show')
+  $('.messaging').text('Sign in failed. Please try again.')
 }
 
 const changePasswordSuccess = data => {
   $('.change-password-input').val('')
+  $('#messaging-modal').modal('show')
   $('.messaging').text('Password change successful!')
 }
 
@@ -45,14 +52,20 @@ const changePasswordFailure = () => {
 
 const signOutSuccess = data => {
   store.user = null
-  $('.unauthorized').hide()
-  $('.authorized').show()
+  $('.unauthorized').show()
+  $('.authorized').hide()
   $('.navbar-authorized').css('visibility', 'hidden')
-  $('.recipes').html('')
+  $('.recipes').html(`<section class="opener col-11">Stuck at home with nothing to do? Of course you are! <br> <br>
+    Welcome to <span class=title-font>&#10084;Share-a-Recipe&#10084;</span>, where you can find recipes to make your wildest culinary dreams come true! (Or at least find a new way to pass the time.) <br> <br>
+    To get started on this epicurean adventure, sign in above to see recipes posted by users from anywhere, and post and edit your own!
+  </section>`)
+  $('#messaging-modal').modal('show')
+  $('.messaging').text('Sign out successful!')
 }
 
 const signOutFailure = () => {
-  $('.messaging').text('Sign out has failed.').css('color', 'red')
+  $('#messaging-modal').modal('show')
+  $('.messaging').text('Sign out failed. Please try again.')
 }
 
 module.exports = {
