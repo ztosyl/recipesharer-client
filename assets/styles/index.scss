@@ -127,7 +127,12 @@ h1 {
 
 .search-label {
   color: $accent;
-  margin-top:10px;
+  margin-top: 10px;
+}
+
+.comment-title {
+  margin-bottom: 10px;
+  margin-left: 10px;
 }
 
 .authorized {
@@ -162,9 +167,9 @@ textarea {
 }
 
 .form-label {
+  margin-bottom: 0;
   margin-left: 10px;
   margin-top: 10px;
-  margin-bottom: 0;
 }
 
 .form-control {

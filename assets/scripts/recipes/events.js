@@ -20,6 +20,7 @@ const showFullRecipe = event => {
     .then(recipe => {
       if (recipe.recipe.author === store.user._id) {
         $(`section[data-id='${id}'] > .hidden-buttons`).show()
+        $(`.comment-form-sect[data-id='${id}']`).hide()
       }
     })
     .catch(ui.findOneRecipeFailure)
