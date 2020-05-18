@@ -17312,6 +17312,7 @@ var signUpSuccess = function signUpSuccess(data) {
 
 var signUpFailure = function signUpFailure() {
   $('.sign-up-input').val('');
+  $('#messaging-modal').modal('show');
   $('.messaging').text('Sign up has failed. Please try again.');
 };
 
