@@ -330,6 +330,34 @@ const onCreateComment = event => {
     .catch(ui.createCommentFailure)
 }
 
+const onChooseStar = event => {
+  const rating = $(event.target).data('id')
+  for (let i = 1; i <= 5; i++) {
+    $(`span[data-id=${i}]`).html(`&#9734;`)
+  }
+  for (let i = 1; i <= rating; i++) {
+    $(`span[data-id=${i}]`).html(`&#9733;`)
+  }
+  $('.rating-input').val(`${rating}`)
+  console.log($('.rating-input').val())
+}
+
+const onRatingSubmit = event => {
+  event.preventDefault()
+  const id = $(event.target).data('id')
+  const form = event.target
+  const formData = getFormFields(form)
+  console.log(formData)
+  if (formData.rating) {
+    api.postRating(id, formData.rating)
+      .then(ui.postRatingSuccess)
+      .then(() => {
+        showFullRecipe(event)
+      })
+      .catch(ui.postRatingFailure)
+  }
+}
+
 module.exports = {
   onGetRecipes,
   onPostRecipe,
@@ -343,5 +371,7 @@ module.exports = {
   onMealSearch,
   onSearchByIngredients,
   onSearchByTitle,
-  onCreateComment
+  onCreateComment,
+  onChooseStar,
+  onRatingSubmit
 }

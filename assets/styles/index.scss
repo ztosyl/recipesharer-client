@@ -71,6 +71,15 @@ section {
   margin-top: 5px;
 }
 
+.star {
+  cursor: pointer;
+  font-size: 40px;
+}
+
+.rating-input {
+  display: none;
+}
+
 .nav-btn {
   background-color: $font-color-light-accent;
   border: $border-button;

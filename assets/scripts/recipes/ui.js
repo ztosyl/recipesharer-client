@@ -65,6 +65,16 @@ const createCommentFailure = () => {
   $('.messaging').text('Comment creation failed. Please try again.')
 }
 
+const postRatingSuccess = () => {
+  $('#messaging-modal').modal('show')
+  $('.messaging').text('Rating created successfully!')
+}
+
+const postRatingFailure = () => {
+  $('#messaging-modal').modal('show')
+  $('.messaging').text('Rating creation failed. Please try again.')
+}
+
 module.exports = {
   getRecipesSuccess,
   getRecipesFailure,
@@ -77,5 +87,7 @@ module.exports = {
   getYourRecipesSuccess,
   getYourRecipesFailure,
   createCommentSuccess,
-  createCommentFailure
+  createCommentFailure,
+  postRatingSuccess,
+  postRatingFailure
 }

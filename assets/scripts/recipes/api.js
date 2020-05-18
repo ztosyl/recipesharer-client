@@ -66,11 +66,24 @@ const createComment = (id, data) => {
   })
 }
 
+const postRating = (id, data) => {
+  return $.ajax({
+    url: config.apiUrl + '/recipes/' + id + '/ratings',
+    method: 'PATCH',
+    contentType: 'application/json',
+    data: JSON.stringify(data),
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   getRecipes,
   postRecipe,
   deleteRecipe,
   findOneRecipe,
   updateRecipe,
-  createComment
+  createComment,
+  postRating
 }

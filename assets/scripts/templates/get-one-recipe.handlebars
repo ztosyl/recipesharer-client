@@ -13,7 +13,7 @@
   <button data-id="{{recipe.recipe._id}}" class="hidden-buttons show-update-recipe btn btn-secondary">Update</button>
   <button data-id="{{recipe.recipe._id}}" class="hidden-buttons delete-recipe-prompt btn btn-danger">Delete</button>
 </section>
-<section class="col-6">
+<section class="col-5">
 <h3>Comments:</h3>
 {{#each recipe.recipe.comments as |comment|}}
 <hr>
@@ -22,11 +22,23 @@
 <hr>
 {{/each}}
 </section>
-<section data-id="{{recipe.recipe._id}}" class="comment-form-sect col-5">
+<section data-id="{{recipe.recipe._id}}" class="comment-form-sect col-3">
   <form data-id="{{recipe.recipe._id}}" class="comment-form">
     <label>Like it? Hate it? Give feedback here:</label>
     <input class="comment-title" type="text" name="comment[title]" required placeholder="Title">
     <textarea name="comment[body]" required placeholder="Comment"></textarea>
     <button type="submit" class="btn btn-secondary">Post comment</button>
+  </form>
+</section>
+<section data-id="{{recipe.recipe._id}}" class="comment-form-sect col-3">
+  <label>Add a rating:</label> <br>
+  <span data-id=1 class="star">&#9734;</span>
+  <span data-id=2 class="star">&#9734;</span>
+  <span data-id=3 class="star">&#9734;</span>
+  <span data-id=4 class="star">&#9734;</span>
+  <span data-id=5 class="star">&#9734;</span> <br>
+  <form data-id="{{recipe.recipe._id}}" class="ratings-form">
+  <input type="text" name="rating[rating]" class="rating-input">
+  <button class="btn btn-secondary post-ratings">Post rating</button>
   </form>
 </section>

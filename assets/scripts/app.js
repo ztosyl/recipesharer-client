@@ -29,4 +29,6 @@ $(() => {
   $('.search-by-ingredients').on('submit', recipeEvents.onSearchByIngredients)
   $('.search-by-title').on('submit', recipeEvents.onSearchByTitle)
   $('.recipes').on('submit', '.comment-form', recipeEvents.onCreateComment)
+  $('.recipes').on('click', '.star', recipeEvents.onChooseStar)
+  $('.recipes').on('submit', '.ratings-form', recipeEvents.onRatingSubmit)
 })
