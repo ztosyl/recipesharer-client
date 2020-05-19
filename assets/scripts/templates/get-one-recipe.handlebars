@@ -29,23 +29,27 @@
 <hr>
 {{/if}}
 </section>
-<section data-id="{{recipe.recipe._id}}" class="comment-form-sect col-3">
+<section data-id="{{recipe.recipe._id}}" class="comment-form-sect col-3 feedback-area">
   <form data-id="{{recipe.recipe._id}}" class="comment-form">
     <label>Like it? Hate it? Comment here:</label>
+    <hr>
     <input class="comment-input comment-title" type="text" name="comment[title]" required placeholder="Title">
     <textarea class="comment-input comment-body" name="comment[body]" required placeholder="Comment"></textarea>
-    <button type="submit" class="btn btn-secondary">Post comment</button>
+    <hr>
+    <button type="submit" class="btn btn-maroon comment-btn">Post comment</button>
   </form>
 </section>
-<section data-id="{{recipe.recipe._id}}" class="comment-form-sect col-3">
+<section data-id="{{recipe.recipe._id}}" class="comment-form-sect feedback-area col-3">
   <label>Add a rating:</label> <br>
+  <hr>
   <span data-id=1 class="star">&#9734;</span>
   <span data-id=2 class="star">&#9734;</span>
   <span data-id=3 class="star">&#9734;</span>
   <span data-id=4 class="star">&#9734;</span>
-  <span data-id=5 class="star">&#9734;</span> <br>
+  <span data-id=5 class="star">&#9734;</span>
+  <hr> <br>
   <form data-id="{{recipe.recipe._id}}" class="ratings-form">
   <input type="text" name="rating[rating]" class="rating-input">
-  <button class="btn btn-secondary post-ratings">Post rating</button>
+  <button class="btn btn-maroon post-ratings">Post rating</button>
   </form>
 </section>

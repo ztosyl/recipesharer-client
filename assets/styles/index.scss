@@ -73,6 +73,10 @@ section {
   padding: 5px;
 }
 
+.feedback-area {
+  text-align: center;
+}
+
 .title-font {
   font-family: $title-font;
 }
@@ -143,6 +147,10 @@ section {
   margin-bottom: 7px;
 }
 
+.comment-btn {
+  margin-bottom: 5px;
+}
+
 .search-inputs {
   margin-top: 50px;
 }
@@ -189,7 +197,8 @@ textarea {
 }
 
 .comment-body {
-  height: 40px;
+  height: 55px;
+  margin-left: 10px;
   width: 90%;
 }
 
