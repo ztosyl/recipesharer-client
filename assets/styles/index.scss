@@ -7,9 +7,9 @@ body {
 }
 
 .opener {
+  font-size: 20px;
   margin-top: 35px;
   text-align: center;
-  font-size: 20px;
 }
 
 nav {
@@ -24,6 +24,14 @@ nav {
   background-color: $modal-bg;
 }
 
+.modal {
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .header {
   display: inline-flex;
   justify-content: flex-end;
@@ -32,11 +40,12 @@ nav {
 }
 
 small {
-  margin: 0 10px;
+  margin: 0 80px 0 30px;
 }
 
 h1 {
   align-self: flex-start;
+  color: $accent;
   font-family: $title-font;
 }
 
@@ -85,7 +94,7 @@ section {
 }
 
 .input-hr {
-  width: 70%;
+  width: 80%;
 }
 
 .nav-btn {
@@ -98,19 +107,21 @@ section {
   &:hover {
     background-color: $font-color-light-accent-hover;
     border: $border-inverse;
+    color: $font-color-light;
   }
 }
 
-.submit-btn {
+.search-btn {
   background-color: $font-color-light-accent;
-  border: $border-button;
+  border: $search-border-button;
   border-radius: 5px;
   color: $accent;
   margin-left: 5px;
 
   &:hover {
     background-color: $font-color-light-accent-hover;
-    border: $border-inverse;
+    border: $search-border-button;
+    color: $font-color-light;
   }
 }
 
@@ -120,12 +131,16 @@ section {
 
   &:hover {
     background-color: $accent-hover;
-    color: $font-color-light
+    color: $font-color-light;
   }
 }
 
-h1 {
-  color: $accent;
+.auth-btn {
+  margin-top: 10px;
+}
+
+.show-full {
+  margin-bottom: 7px;
 }
 
 .search-inputs {
@@ -169,7 +184,7 @@ h1 {
 
 textarea {
   height: 100px;
-  margin-left: 10px;
+  margin-left: 20px;
   width: 70%;
 }
 
@@ -180,12 +195,12 @@ textarea {
 
 .form-label {
   margin-bottom: 0;
-  margin-left: 10px;
+  margin-left: 20px;
   margin-top: 0;
 }
 
 .form-control {
-  margin-left: 10px;
+  margin-left: 20px;
   width: 50%;
 }
 
@@ -199,4 +214,5 @@ textarea {
 
 .hidden-buttons {
   display: none;
+  margin-bottom: 7px;
 }

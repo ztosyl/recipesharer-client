@@ -27,7 +27,7 @@
           <div class="col-12"><input class="sign-up-input" required type="text" name="credentials[email]" placeholder="Email"></div>
           <div class="col-12"><input class="sign-up-input" required type="password" name="credentials[password]" placeholder="Password"></div>
           <div class="col-12"><input class="sign-up-input" required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"></div>
-          <div class="col-12"><button class="btn-maroon btn" type="submit">Sign Up</button></div>
+          <div class="col-12"><button class="btn-maroon auth-btn btn" type="submit">Sign Up</button></div>
         </form>
       </div>
       <div class="modal-footer">
@@ -50,7 +50,7 @@
   <form class='sign-in'>
     <div class="col-12"><input class="sign-in-input" required type="text" name="credentials[email]" placeholder="Email"></div>
     <div class="col-12"><input class="sign-in-input" required type="password" name="credentials[password]" placeholder="Password"></div>
-    <div class="col-12"><button class="btn-maroon btn" type="submit">Sign In</button></div>
+    <div class="col-12"><button class="btn-maroon auth-btn btn" type="submit">Sign In</button></div>
   </form>
   </div>
   <div class="modal-footer">
@@ -72,7 +72,7 @@
   <form class='change-password'>
     <div class="col-12"><input class="change-password-input" required type="password" name="passwords[old]" placeholder="Old Password"></div>
     <div class="col-12"><input class="change-password-input" required type="password" name="passwords[new]" placeholder="New Password"></div>
-    <div class="col-12"><button class="btn-maroon btn" type="submit">Change Password</button></div>
+    <div class="col-12"><button class="btn-maroon auth-btn btn" type="submit">Change Password</button></div>
   </form>
 </div>
 <div class="modal-footer">
@@ -115,13 +115,13 @@
       <hr class="input-hr">
     <div class='ingredients'>
     <label class="title form-label">Ingredients:</label>
-    <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each new ingredient on a new line.</small>
+    <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each ingredient on a new line.</small>
     <textarea class="post-field" name="recipe[ingredients]" required placeholder="Ingredients go here!"></textarea>
   </div>
   <hr class="input-hr">
     <div class='steps'>
     <label class="title form-label">Steps:</label>
-    <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each new ingredient on a new line. Don't add numbers or dashes before the steps!</small>
+    <small class="title">Put your steps below, and make sure to put each step on a new line. Don't add numbers or dashes before the steps!</small>
     <textarea class="post-field" name="recipe[steps]" required placeholder="Steps go here!"></textarea>
     </div>
     <hr class="input-hr">
@@ -169,13 +169,13 @@
         <hr class="input-hr">
     <div class='ingredients'>
     <label class="title form-label">Ingredients:</label>
-    <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each new ingredient on a new line.</small>
+    <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each ingredient on a new line.</small>
     <textarea class="update-field" name="recipe[ingredients]" placeholder="Ingredients go here!"></textarea>
   </div>
   <hr class="input-hr">
     <div class='steps'>
     <label class="title form-label">Steps:</label>
-    <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each new ingredient on a new line. Don't add numbers or dashes before the steps!</small>
+    <small class="title">Put your steps below, and make sure to put each step on a new line. Don't add numbers or dashes before the steps!</small>
     <textarea class="update-field" name="recipe[steps]" placeholder="Steps go here!"></textarea>
     </div>
     <hr class="input-hr">
@@ -315,18 +315,18 @@
             <label class="title-font search-label">Search by Ingredient:</label>
             <input class="form-control ingred-search form-control-sm ml-3 w-75" required name="ingredients" type="text" placeholder="Ingredients"
               aria-label="search">
-              <button type="submit" class="btn submit-btn title-font">Search</button>
+              <button type="submit" class="btn search-btn title-font">Search</button>
           </form>
           <form class="col-5 form-inline search-by-title">
             <label class="title-font search-label">Search by Title:</label>
             <input class="form-control title-search form-control-sm ml-3 w-75" required name="title" type="text" placeholder="Title"
               aria-label="search">
-              <button type="submit" class="btn submit-btn title-font">Search</button>
+              <button type="submit" class="btn search-btn title-font">Search</button>
           </form>
         </div>
         </div>
         <div class="recipes row">
-          <section class="opener col-11">Stuck at home with nothing to do? <i>Of course you are!</i> <br> <br>
+          <section class="opener col-11">Stuck at home with nothing to do? <br> <strong><i>Of course you are!</i></strong> <br> <br>
             Welcome to <span class=title-font>&#10084;Share-a-Recipe&#10084;</span>, where you can find recipes to make your wildest culinary dreams come true! (Or at least find a new way to pass the time.) <br> <br>
             To get started on this epicurean adventure, sign in above to see recipes posted by users from anywhere, and post and edit your own!
           </section>

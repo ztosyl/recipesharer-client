@@ -54,7 +54,16 @@ const onGetYourRecipes = event => {
       return yourRecipes
     })
     // this displays the recipes onscreen
-    .then(ui.getYourRecipesSuccess)
+    .then(recipes => {
+      // if you don't have any recipes, tell user to post one
+      if (recipes.length === 0) {
+        $('#messaging-modal').modal('show')
+        $('.messaging').text('Sorry! No recipes matched your search. Try posting one!')
+        // else post them onscreen
+      } else {
+        ui.getYourRecipesSuccess(recipes)
+      }
+    })
     // handles error
     .catch(ui.getYourRecipesFailure)
 }
