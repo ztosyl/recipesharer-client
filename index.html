@@ -17,7 +17,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title title-font" id="staticBackdropLabel">Sign Up Here</h5>
+        <h3 class="modal-title title-font" id="staticBackdropLabel">Sign Up Here</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -27,7 +27,7 @@
           <div class="col-12"><input class="sign-up-input" required type="text" name="credentials[email]" placeholder="Email"></div>
           <div class="col-12"><input class="sign-up-input" required type="password" name="credentials[password]" placeholder="Password"></div>
           <div class="col-12"><input class="sign-up-input" required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"></div>
-          <div class="col-12"><button class="btn-secondary btn" type="submit">Sign Up</button></div>
+          <div class="col-12"><button class="btn-maroon btn" type="submit">Sign Up</button></div>
         </form>
       </div>
       <div class="modal-footer">
@@ -41,7 +41,7 @@
 <div class="modal-dialog" role="document">
 <div class="modal-content">
 <div class="modal-header">
-  <h5 class="modal-title title-font" id="staticBackdropLabel">Sign In Here</h5>
+  <h3 class="modal-title title-font" id="staticBackdropLabel">Sign In Here</h3>
   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -50,7 +50,7 @@
   <form class='sign-in'>
     <div class="col-12"><input class="sign-in-input" required type="text" name="credentials[email]" placeholder="Email"></div>
     <div class="col-12"><input class="sign-in-input" required type="password" name="credentials[password]" placeholder="Password"></div>
-    <div class="col-12"><button class="btn-secondary btn" type="submit">Sign In</button></div>
+    <div class="col-12"><button class="btn-maroon btn" type="submit">Sign In</button></div>
   </form>
   </div>
   <div class="modal-footer">
@@ -63,7 +63,7 @@
 <div class="modal-dialog" role="document">
 <div class="modal-content">
 <div class="modal-header">
-  <h5 class="modal-title title-font" id="staticBackdropLabel">Update Your Password</h5>
+  <h3 class="modal-title title-font" id="staticBackdropLabel">Update Your Password</h3>
   <button type="button" class="close close-password" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -72,11 +72,11 @@
   <form class='change-password'>
     <div class="col-12"><input class="change-password-input" required type="password" name="passwords[old]" placeholder="Old Password"></div>
     <div class="col-12"><input class="change-password-input" required type="password" name="passwords[new]" placeholder="New Password"></div>
-    <div class="col-12"><button class="btn-secondary btn" type="submit">Change Password</button></div>
+    <div class="col-12"><button class="btn-maroon btn" type="submit">Change Password</button></div>
   </form>
 </div>
 <div class="modal-footer">
-  <div class="col-12"><button class="btn btn-danger close-password close-modal" data-toggle="modal" data-dismiss="modal">Close</button></div>
+  <button class="btn btn-secondary close-password close-modal" data-toggle="modal" data-dismiss="modal">Close</button>
 </div>
 </div>
 </div>
@@ -85,7 +85,7 @@
 <div class="modal-dialog" role="document">
 <div class="modal-content">
 <div class="modal-header">
-  <h5 class="modal-title title-font" id="staticBackdropLabel">Post a Recipe</h5>
+  <h3 class="modal-title title-font" id="staticBackdropLabel">Post a Recipe</h3>
   <button type="button" class="close close-password" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -94,6 +94,7 @@
   <div class="form-group">
    <form class="post-recipes">
     <input class="title form-label post-field" required type="text" name="recipe[title]" placeholder="Recipe Title">
+      <hr class="input-hr">
       <label class="form-label">Type of recipe:</label>
         <select required class="form-control" name="recipe[meal]">
           <option>Breakfast</option>
@@ -104,28 +105,32 @@
           <option>Snack</option>
           <option>Beverage</option>
         </select>
+        <hr class="input-hr">
       <label class="form-label">Difficulty:</label>
         <select required class="form-control" name="recipe[difficulty]">
           <option>Easy</option>
           <option>Moderate</option>
           <option>Difficult</option>
         </select>
+      <hr class="input-hr">
     <div class='ingredients'>
     <label class="title form-label">Ingredients:</label>
     <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each new ingredient on a new line.</small>
     <textarea class="post-field" name="recipe[ingredients]" required placeholder="Ingredients go here!"></textarea>
   </div>
+  <hr class="input-hr">
     <div class='steps'>
     <label class="title form-label">Steps:</label>
     <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each new ingredient on a new line. Don't add numbers or dashes before the steps!</small>
     <textarea class="post-field" name="recipe[steps]" required placeholder="Steps go here!"></textarea>
     </div>
-    <button type="submit" class="btn-secondary btn form-label">Post Recipe</button>
+    <hr class="input-hr">
+    <button type="submit" class="btn-maroon btn form-label">Post Recipe</button>
    </form>
    </div>
 </div>
 <div class="modal-footer">
-  <div class="col-12"><button class="btn btn-danger close-modal" data-toggle="modal" data-dismiss="modal">Close</button></div>
+  <button class="btn btn-secondary close-modal" data-toggle="modal" data-dismiss="modal">Close</button>
 </div>
 </div>
 </div>
@@ -134,7 +139,7 @@
 <div class="modal-dialog" role="document">
 <div class="modal-content">
 <div class="modal-header">
-  <h5 class="modal-title title-font" id="staticBackdropLabel">Update a Recipe</h5>
+  <h3 class="modal-title title-font" id="staticBackdropLabel">Update a Recipe</h3>
   <button type="button" class="close close-update" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -143,6 +148,7 @@
   <div class="form-group">
    <form class="update-recipe">
     <input class="title form-label update-field" type="text" name="recipe[title]" placeholder="Recipe Title">
+      <hr class="input-hr">
       <label class="form-label">Type of recipe:</label>
         <select class="form-control" name="recipe[meal]">
           <option>Breakfast</option>
@@ -153,28 +159,32 @@
           <option>Snack</option>
           <option>Beverage</option>
         </select>
+        <hr class="input-hr">
       <label class="form-label">Difficulty:</label>
         <select class="form-control" name="recipe[difficulty]">
           <option>Easy</option>
           <option>Moderate</option>
           <option>Difficult</option>
         </select>
+        <hr class="input-hr">
     <div class='ingredients'>
     <label class="title form-label">Ingredients:</label>
     <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each new ingredient on a new line.</small>
     <textarea class="update-field" name="recipe[ingredients]" placeholder="Ingredients go here!"></textarea>
   </div>
+  <hr class="input-hr">
     <div class='steps'>
     <label class="title form-label">Steps:</label>
     <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each new ingredient on a new line. Don't add numbers or dashes before the steps!</small>
     <textarea class="update-field" name="recipe[steps]" placeholder="Steps go here!"></textarea>
     </div>
-    <button type="submit" class="update-recipe-btn btn-secondary form-label btn">Update Recipe</button>
+    <hr class="input-hr">
+    <button type="submit" class="update-recipe-btn btn-maroon form-label btn">Update Recipe</button>
    </form>
    </div>
 </div>
 <div class="modal-footer">
-  <div class="col-12"><button class="btn btn-danger close-update close-modal" data-toggle="modal" data-dismiss="modal">Close</button></div>
+  <button class="btn btn-secondary close-update close-modal" data-toggle="modal" data-dismiss="modal">Close</button>
 </div>
 </div>
 </div>
@@ -305,18 +315,18 @@
             <label class="title-font search-label">Search by Ingredient:</label>
             <input class="form-control ingred-search form-control-sm ml-3 w-75" required name="ingredients" type="text" placeholder="Ingredients"
               aria-label="search">
-              <button type="submit" class="btn btn-success submit-btn title-font">Search</button>
+              <button type="submit" class="btn submit-btn title-font">Search</button>
           </form>
           <form class="col-5 form-inline search-by-title">
             <label class="title-font search-label">Search by Title:</label>
             <input class="form-control title-search form-control-sm ml-3 w-75" required name="title" type="text" placeholder="Title"
               aria-label="search">
-              <button type="submit" class="btn btn-success submit-btn title-font">Search</button>
+              <button type="submit" class="btn submit-btn title-font">Search</button>
           </form>
         </div>
         </div>
         <div class="recipes row">
-          <section class="opener col-11">Stuck at home with nothing to do? Of course you are! <br> <br>
+          <section class="opener col-11">Stuck at home with nothing to do? <i>Of course you are!</i> <br> <br>
             Welcome to <span class=title-font>&#10084;Share-a-Recipe&#10084;</span>, where you can find recipes to make your wildest culinary dreams come true! (Or at least find a new way to pass the time.) <br> <br>
             To get started on this epicurean adventure, sign in above to see recipes posted by users from anywhere, and post and edit your own!
           </section>

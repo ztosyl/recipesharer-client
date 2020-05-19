@@ -3,6 +3,7 @@
 const store = require('../store')
 const config = require('../config')
 
+// get specific recipe from API by ID
 const findOneRecipe = id => {
   return $.ajax({
     url: config.apiUrl + '/recipes/' + id,
@@ -12,6 +13,7 @@ const findOneRecipe = id => {
   })
 }
 
+// update recipe data to API using ID
 const updateRecipe = (data, id) => {
   return $.ajax({
     url: config.apiUrl + '/recipes/' + id,
@@ -23,6 +25,7 @@ const updateRecipe = (data, id) => {
   })
 }
 
+// get all recipes from API
 const getRecipes = () => {
   return $.ajax({
     url: config.apiUrl + '/recipes',
@@ -32,6 +35,7 @@ const getRecipes = () => {
   })
 }
 
+// post recipe data to API
 const postRecipe = data => {
   return $.ajax({
     url: config.apiUrl + '/recipes',
@@ -44,6 +48,7 @@ const postRecipe = data => {
   })
 }
 
+// delete recipe by ID from API
 const deleteRecipe = id => {
   return $.ajax({
     url: config.apiUrl + '/recipes/' + id,
@@ -54,6 +59,7 @@ const deleteRecipe = id => {
   })
 }
 
+// create a new comment on a recipe by ID
 const createComment = (id, data) => {
   return $.ajax({
     url: config.apiUrl + '/recipes/' + id + '/comments',
@@ -66,6 +72,7 @@ const createComment = (id, data) => {
   })
 }
 
+// post a rating to a recipe by ID
 const postRating = (id, data) => {
   return $.ajax({
     url: config.apiUrl + '/recipes/' + id + '/ratings',

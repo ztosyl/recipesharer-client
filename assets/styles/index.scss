@@ -20,6 +20,10 @@ nav {
   background-color: $invisible-navbar;
 }
 
+.modal-content {
+  background-color: $modal-bg;
+}
+
 .header {
   display: inline-flex;
   justify-content: flex-end;
@@ -80,49 +84,43 @@ section {
   display: none;
 }
 
+.input-hr {
+  width: 70%;
+}
+
 .nav-btn {
   background-color: $font-color-light-accent;
   border: $border-button;
   border-radius: 30px;
   color: $accent;
   margin: 7px 20px;
-    &:hover {
-      background-color: $font-color-light-accent-hover;
-      border: $border-inverse;
-    }
-    &:active {
-      background-color: $font-color-light-accent-hover;
-      border: $border-inverse;
-    }
-    &:visited {
-      background-color: $font-color-light-accent;
-      border: $border-inverse;
-      border-radius: 30px;
-      color: $accent;
-      margin: 7px 20px;
-    }
+
+  &:hover {
+    background-color: $font-color-light-accent-hover;
+    border: $border-inverse;
+  }
 }
 
 .submit-btn {
   background-color: $font-color-light-accent;
   border: $border-button;
-  border-radius: 15px;
+  border-radius: 5px;
   color: $accent;
   margin-left: 5px;
+
   &:hover {
     background-color: $font-color-light-accent-hover;
     border: $border-inverse;
   }
-  &:active {
-    background-color: $font-color-light-accent-hover;
-    border: $border-inverse;
-  }
-  &:visited {
-    background-color: $font-color-light-accent;
-    border: $border-inverse;
-    border-radius: 30px;
-    color: $accent;
-    margin: 7px 20px;
+}
+
+.btn-maroon {
+  background-color: $accent;
+  color: $font-color-light;
+
+  &:hover {
+    background-color: $accent-hover;
+    color: $font-color-light
   }
 }
 
@@ -175,10 +173,15 @@ textarea {
   width: 70%;
 }
 
+.comment-body {
+  height: 40px;
+  width: 90%;
+}
+
 .form-label {
   margin-bottom: 0;
   margin-left: 10px;
-  margin-top: 10px;
+  margin-top: 0;
 }
 
 .form-control {
