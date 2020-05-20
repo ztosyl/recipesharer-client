@@ -19259,15 +19259,7 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"body") : stack1), depth0))
     + "</p>\n</div>\n<hr>\n";
 },"8":function(container,depth0,helpers,partials,data) {
-    var lookupProperty = container.lookupProperty || function(parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined
-    };
-
-  return container.escapeExpression(lookupProperty(helpers,"log").call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"isComment") : depth0),{"name":"log","hash":{},"data":data,"loc":{"start":{"line":29,"column":0},"end":{"line":29,"column":17}}}))
-    + "\n<hr>\n<h5>No comments yet!</h5>\n<hr>\n";
+    return "<hr>\n<h5>No comments yet!</h5>\n<hr>\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data,blockParams) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -19295,7 +19287,7 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
     + "\" class=\"hidden-buttons show-update-recipe btn btn-maroon\">Update</button>\n  <button data-id=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"_id") : stack1), depth0))
     + "\" class=\"hidden-buttons delete-recipe-prompt btn btn-danger\">Delete</button>\n</section>\n<section class=\"col-5\">\n<h3>Comments:</h3>\n"
-    + ((stack1 = lookupProperty(helpers,"if").call(alias3,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"comments") : stack1),{"name":"if","hash":{},"fn":container.program(5, data, 0, blockParams),"inverse":container.program(8, data, 0, blockParams),"data":data,"blockParams":blockParams,"loc":{"start":{"line":19,"column":0},"end":{"line":33,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias3,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"comments") : stack1),{"name":"if","hash":{},"fn":container.program(5, data, 0, blockParams),"inverse":container.program(8, data, 0, blockParams),"data":data,"blockParams":blockParams,"loc":{"start":{"line":19,"column":0},"end":{"line":32,"column":7}}})) != null ? stack1 : "")
     + "</section>\n<section data-id=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"_id") : stack1), depth0))
     + "\" class=\"comment-form-sect col-3 feedback-area\">\n  <form data-id=\""
