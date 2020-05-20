@@ -111,10 +111,11 @@
   </button>
 </div>
 <div class="modal-body row d-flex">
-  <div class="form-group">
    <form class="post-recipes">
-    <input class="title form-label post-field" required type="text" name="recipe[title]" placeholder="Recipe Title">
-      <hr class="input-hr">
+    <div class="form-group row col-8">
+    <input class="title form-label post-field form-control" required type="text" name="recipe[title]" placeholder="Recipe Title">
+    </div>
+    <div class="form-group row col-8">
       <label class="form-label">Type of recipe:</label>
         <select required class="form-control" name="recipe[meal]">
           <option>Breakfast</option>
@@ -125,29 +126,29 @@
           <option>Snack</option>
           <option>Beverage</option>
         </select>
-        <hr class="input-hr">
+      </div>
+      <div class="form-group row col-8">
       <label class="form-label">Difficulty:</label>
         <select required class="form-control" name="recipe[difficulty]">
           <option>Easy</option>
           <option>Moderate</option>
           <option>Difficult</option>
         </select>
-      <hr class="input-hr">
-    <div class='ingredients'>
+      </div>
+    <div class='ingredients form-group row col-10'>
     <label class="title form-label">Ingredients:</label>
-    <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each ingredient on a new line.</small>
-    <textarea class="post-field" name="recipe[ingredients]" required placeholder="Ingredients go here!"></textarea>
+    <small class="col-12">Put your ingredients and ingredient amounts below, and make sure to put each ingredient on a new line.</small>
+    <textarea class="post-field form-control" name="recipe[ingredients]" required placeholder="Ingredients go here!"></textarea>
   </div>
-  <hr class="input-hr">
-    <div class='steps'>
+    <div class='steps form-group row col-10'>
     <label class="title form-label">Steps:</label>
-    <small class="title">Put your steps below, and make sure to put each step on a new line. Don't add numbers or dashes before the steps!</small>
-    <textarea class="post-field" name="recipe[steps]" required placeholder="Steps go here!"></textarea>
+    <small class="col-12">Put your steps below, and make sure to put each step on a new line. Don't add numbers or dashes before the steps!</small>
+    <textarea class="post-field form-control" name="recipe[steps]" required placeholder="Steps go here!"></textarea>
     </div>
-    <hr class="input-hr">
-    <button type="submit" class="btn-maroon btn form-label">Post Recipe</button>
+    <div class="form-group row col-6">
+    <button type="submit" class="btn-maroon btn form-label form-control">Post Recipe</button>
+  </div>
    </form>
-   </div>
 </div>
 <div class="modal-footer">
   <button class="btn btn-secondary close-modal" data-toggle="modal" data-dismiss="modal">Close</button>
@@ -165,10 +166,11 @@
   </button>
 </div>
 <div class="modal-body row d-flex">
-  <div class="form-group">
    <form class="update-recipe">
-    <input class="title form-label update-field" type="text" name="recipe[title]" placeholder="Recipe Title">
-      <hr class="input-hr">
+    <div class="form-group row col-8">
+    <input class="title form-label update-field form-control" type="text" name="recipe[title]" placeholder="Recipe Title">
+  </div>
+      <div class="form-group row col-8">
       <label class="form-label">Type of recipe:</label>
         <select class="form-control" name="recipe[meal]">
           <option>Breakfast</option>
@@ -179,29 +181,29 @@
           <option>Snack</option>
           <option>Beverage</option>
         </select>
-        <hr class="input-hr">
+      </div>
+      <div class="form-group row col-8">
       <label class="form-label">Difficulty:</label>
         <select class="form-control" name="recipe[difficulty]">
           <option>Easy</option>
           <option>Moderate</option>
           <option>Difficult</option>
         </select>
-        <hr class="input-hr">
-    <div class='ingredients'>
+      </div>
+      <div class="form-group row col-10">
     <label class="title form-label">Ingredients:</label>
-    <small class="title">Put your ingredients and ingredient amounts below, and make sure to put each ingredient on a new line.</small>
-    <textarea class="update-field" name="recipe[ingredients]" placeholder="Ingredients go here!"></textarea>
+    <small class="col-12">Put your ingredients and ingredient amounts below, and make sure to put each ingredient on a new line.</small>
+    <textarea class="update-field form-control modal-textarea" name="recipe[ingredients]" placeholder="Ingredients go here!"></textarea>
   </div>
-  <hr class="input-hr">
-    <div class='steps'>
+  <div class="form-group row col-10">
     <label class="title form-label">Steps:</label>
-    <small class="title">Put your steps below, and make sure to put each step on a new line. Don't add numbers or dashes before the steps!</small>
-    <textarea class="update-field" name="recipe[steps]" placeholder="Steps go here!"></textarea>
+    <small class="col-12">Put your steps below, and make sure to put each step on a new line. Don't add numbers or dashes before the steps!</small>
+    <textarea class="update-field form-control modal-textarea" name="recipe[steps]" placeholder="Steps go here!"></textarea>
     </div>
-    <hr class="input-hr">
-    <button type="submit" class="update-recipe-btn btn-maroon form-label btn">Update Recipe</button>
+    <div class="form-group row col-6">
+    <button type="submit" class="update-recipe-btn btn-maroon form-label btn form-control">Update Recipe</button>
+    </div>
    </form>
-   </div>
 </div>
 <div class="modal-footer">
   <button class="btn btn-secondary close-update close-modal" data-toggle="modal" data-dismiss="modal">Close</button>
@@ -332,11 +334,9 @@
         <div class="authorized">
         <div class="row search-inputs">
           <form class="col-6 form-inline search-by-ingredients">
-            <div class="form-group">
             <label class="title-font search-label">Search by Ingredient:</label>
             <input class="form-control ingred-search form-control-sm ml-3 w-75" required name="ingredients" type="text" placeholder="Ingredients"
               aria-label="search">
-            </div>
               <button type="submit" class="btn search-btn title-font">Search</button>
           </form>
           <form class="col-5 form-inline search-by-title">

@@ -31,25 +31,33 @@
 <hr>
 {{/if}}
 </section>
-<section data-id="{{recipe.recipe._id}}" class="comment-form-sect col-3 feedback-area">
+<section data-id="{{recipe.recipe._id}}" class="comment-form-sect col-3 comment-sect feedback-area">
   <form data-id="{{recipe.recipe._id}}" class="comment-form">
     <label>Like it? Hate it? Comment here:</label>
-    <hr>
-    <input class="comment-input comment-title" type="text" name="comment[title]" required placeholder="Title">
-    <textarea class="comment-input comment-body" name="comment[body]" required placeholder="Comment"></textarea>
-    <hr>
-    <button type="submit" class="btn btn-maroon comment-btn">Post comment</button>
+    <div class="container">
+    <div class="row">
+    <div class="form-group col-12">
+    <input class="comment-input comment-title form-control" type="text" name="comment[title]" required placeholder="Title">
+    </div>
+    <div class="form-group col-12">
+    <textarea class="comment-input comment-body form-control" name="comment[body]" required placeholder="Comment"></textarea>
+  </div>
+    <div class="form-group col-8">
+    <button type="submit" class="btn btn-maroon comment-btn form-control">Post comment</button>
+  </div>
+</div>
+</div>
   </form>
 </section>
-<section data-id="{{recipe.recipe._id}}" class="comment-form-sect feedback-area col-3">
-  <label>Add a rating:</label> <br>
+<section data-id="{{recipe.recipe._id}}" class="comment-form-sect feedback-area rating-sect col-3">
+  <label>Add a rating:</label>
   <hr>
   <span data-id=1 class="star">&#9734;</span>
   <span data-id=2 class="star">&#9734;</span>
   <span data-id=3 class="star">&#9734;</span>
   <span data-id=4 class="star">&#9734;</span>
   <span data-id=5 class="star">&#9734;</span>
-  <hr> <br>
+  <hr>
   <form data-id="{{recipe.recipe._id}}" class="ratings-form">
   <input type="text" name="rating[rating]" class="rating-input">
   <button class="btn btn-maroon post-ratings">Post rating</button>
