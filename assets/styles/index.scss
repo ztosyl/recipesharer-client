@@ -81,6 +81,12 @@ section {
   font-family: $title-font;
 }
 
+.comment-box {
+  background-color: $font-color-light;
+  border: $comment-border-style;
+  padding: 7px;
+}
+
 .heart {
   color: $font-color-light-accent;
   font-family: $title-font;
