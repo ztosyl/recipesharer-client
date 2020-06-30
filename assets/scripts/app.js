@@ -31,4 +31,5 @@ $(() => {
   $('.recipes').on('submit', '.comment-form', recipeEvents.onCreateComment)
   $('.recipes').on('click', '.star', recipeEvents.onChooseStar)
   $('.recipes').on('submit', '.ratings-form', recipeEvents.onRatingSubmit)
+  $('.guest-login').on('click', authEvents.onGuestLogin)
 })

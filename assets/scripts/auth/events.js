@@ -65,11 +65,24 @@ const onSignOut = event => {
     .catch(ui.signOutFailure)
 }
 
+const onGuestLogin = event => {
+  const data = {
+    'credentials': {
+      'email': 'guest@guest.com',
+      'password': 'g'
+    }
+  }
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
   modalSwitch,
-  modalSwitchOtherWay
+  modalSwitchOtherWay,
+  onGuestLogin
 }
