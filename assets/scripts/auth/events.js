@@ -3,6 +3,7 @@
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
+const store = require('../store')
 
 // switch from sign-up modal to sign-in modal
 const modalSwitch = function () {
@@ -45,14 +46,18 @@ const onSignIn = event => {
 // when user changes password
 const onChangePassword = event => {
   event.preventDefault()
-  const form = event.target
-  const formData = getFormFields(form)
-  // send password update info to API
-  api.changePassword(formData)
-    // inform user on successful password update
-    .then(ui.changePasswordSuccess)
-    // catch any error
-    .catch(ui.changePasswordFailure)
+  if (store.user.email === 'guest@guest.com') {
+    ui.changePasswordFailureGuest()
+  } else {
+    const form = event.target
+    const formData = getFormFields(form)
+    // send password update info to API
+    api.changePassword(formData)
+      // inform user on successful password update
+      .then(ui.changePasswordSuccess)
+      // catch any error
+      .catch(ui.changePasswordFailure)
+  }
 }
 
 // when user signs out

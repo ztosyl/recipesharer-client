@@ -72,6 +72,13 @@ const changePasswordFailure = () => {
   $('#messaging-modal').modal('show')
   $('.messaging').text('Password change failed. Please try again.')
 }
+const changePasswordFailureGuest = () => {
+  // clear change-password input values
+  $('.change-password-input').val('')
+  // let user know you cannot change the guest pword
+  $('#messaging-modal').modal('show')
+  $('.messaging').text('You cannot change the password of the guest account.')
+}
 
 // if sign out succeeds
 const signOutSuccess = data => {
@@ -105,6 +112,7 @@ module.exports = {
   signInFailure,
   changePasswordSuccess,
   changePasswordFailure,
+  changePasswordFailureGuest,
   signOutSuccess,
   signOutFailure
 }
