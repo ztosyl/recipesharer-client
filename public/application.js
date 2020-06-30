@@ -17187,6 +17187,7 @@ $(function () {
   $('.recipes').on('submit', '.comment-form', recipeEvents.onCreateComment);
   $('.recipes').on('click', '.star', recipeEvents.onChooseStar);
   $('.recipes').on('submit', '.ratings-form', recipeEvents.onRatingSubmit);
+  $('.guest-login').on('click', authEvents.onGuestLogin);
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(28)))
 
@@ -17262,13 +17263,24 @@ var onSignOut = function onSignOut(event) {
   .catch(ui.signOutFailure);
 };
 
+var onGuestLogin = function onGuestLogin(event) {
+  var data = {
+    'credentials': {
+      'email': 'guest@guest.com',
+      'password': 'g'
+    }
+  };
+  api.signIn(data).then(ui.signInSuccess).catch(ui.signInFailure);
+};
+
 module.exports = {
   onSignUp: onSignUp,
   onSignIn: onSignIn,
   onChangePassword: onChangePassword,
   onSignOut: onSignOut,
   modalSwitch: modalSwitch,
-  modalSwitchOtherWay: modalSwitchOtherWay
+  modalSwitchOtherWay: modalSwitchOtherWay,
+  onGuestLogin: onGuestLogin
 };
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(28)))
 
@@ -19229,13 +19241,13 @@ module.exports = exports['default'];
 var Handlebars = __webpack_require__(136);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data,blockParams) {
-    return "\n  <li>"
+    return "\r\n  <li>"
     + container.escapeExpression(container.lambda(blockParams[0][0], depth0))
-    + "</li>\n  ";
+    + "</li>\r\n  ";
 },"3":function(container,depth0,helpers,partials,data,blockParams) {
-    return "\n  <li>"
+    return "\r\n  <li>"
     + container.escapeExpression(container.lambda(blockParams[0][0], depth0))
-    + "</li>\n  ";
+    + "</li>\r\n  ";
 },"5":function(container,depth0,helpers,partials,data,blockParams) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -19253,13 +19265,13 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
         return undefined
     };
 
-  return "<hr>\n<div class=\"comment-box\">\n<h4>"
+  return "<hr>\r\n<div class=\"comment-box\">\r\n<h4>"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"title") : stack1), depth0))
-    + "</h4>\n<p>"
+    + "</h4>\r\n<p>"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"body") : stack1), depth0))
-    + "</p>\n</div>\n<hr>\n";
+    + "</p>\r\n</div>\r\n<hr>\r\n";
 },"8":function(container,depth0,helpers,partials,data) {
-    return "<hr>\n<h5>No comments yet!</h5>\n<hr>\n";
+    return "<hr>\r\n<h5>No comments yet!</h5>\r\n<hr>\r\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data,blockParams) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -19270,33 +19282,33 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
 
   return "<section class='col-11' data-id=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"_id") : stack1), depth0))
-    + "\">\n  <h3>"
+    + "\">\r\n  <h3>"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"title") : stack1), depth0))
-    + "</h3>\n  <h6>"
+    + "</h3>\r\n  <h6>"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"meal") : stack1), depth0))
-    + " Recipe</h6>\n  <h6><strong>Difficulty:</strong> "
+    + " Recipe</h6>\r\n  <h6><strong>Difficulty:</strong> "
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"difficulty") : stack1), depth0))
-    + "</h6>\n  <h6><strong>Rating:</strong> "
+    + "</h6>\r\n  <h6><strong>Rating:</strong> "
     + alias2(__default(__webpack_require__(141)).call(alias3,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"ratings") : stack1),{"name":"average","hash":{},"data":data,"blockParams":blockParams,"loc":{"start":{"line":5,"column":31},"end":{"line":5,"column":64}}}))
-    + "</h6>\n  <h6>Ingredients:</h6>\n  <ol>"
+    + "</h6>\r\n  <h6>Ingredients:</h6>\r\n  <ol>"
     + ((stack1 = lookupProperty(helpers,"each").call(alias3,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"ingredients") : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 1, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":7,"column":6},"end":{"line":9,"column":11}}})) != null ? stack1 : "")
-    + "</ol>\n  <h6>Steps:</h6>\n  <ol>"
+    + "</ol>\r\n  <h6>Steps:</h6>\r\n  <ol>"
     + ((stack1 = lookupProperty(helpers,"each").call(alias3,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"steps") : stack1),{"name":"each","hash":{},"fn":container.program(3, data, 1, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":11,"column":6},"end":{"line":13,"column":11}}})) != null ? stack1 : "")
-    + "</ol>\n  <button data-id=\""
+    + "</ol>\r\n  <button data-id=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"_id") : stack1), depth0))
-    + "\" class=\"hidden-buttons show-update-recipe btn btn-maroon\">Update</button>\n  <button data-id=\""
+    + "\" class=\"hidden-buttons show-update-recipe btn btn-maroon\">Update</button>\r\n  <button data-id=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"_id") : stack1), depth0))
-    + "\" class=\"hidden-buttons delete-recipe-prompt btn btn-danger\">Delete</button>\n</section>\n<section class=\"col-5\">\n<h3>Comments:</h3>\n"
+    + "\" class=\"hidden-buttons delete-recipe-prompt btn btn-danger\">Delete</button>\r\n</section>\r\n<section class=\"col-5\">\r\n<h3>Comments:</h3>\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias3,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"comments") : stack1),{"name":"if","hash":{},"fn":container.program(5, data, 0, blockParams),"inverse":container.program(8, data, 0, blockParams),"data":data,"blockParams":blockParams,"loc":{"start":{"line":19,"column":0},"end":{"line":32,"column":7}}})) != null ? stack1 : "")
-    + "</section>\n<section data-id=\""
+    + "</section>\r\n<section data-id=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"_id") : stack1), depth0))
-    + "\" class=\"comment-form-sect col-3 comment-sect feedback-area\">\n  <form data-id=\""
+    + "\" class=\"comment-form-sect col-3 comment-sect feedback-area\">\r\n  <form data-id=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"_id") : stack1), depth0))
-    + "\" class=\"comment-form\">\n    <label>Like it? Hate it? Comment here:</label>\n    <div class=\"container\">\n    <div class=\"row\">\n    <div class=\"form-group col-12\">\n    <input class=\"comment-input comment-title form-control\" type=\"text\" name=\"comment[title]\" required placeholder=\"Title\">\n    </div>\n    <div class=\"form-group col-12\">\n    <textarea class=\"comment-input comment-body form-control\" name=\"comment[body]\" required placeholder=\"Comment\"></textarea>\n  </div>\n    <div class=\"form-group col-8\">\n    <button type=\"submit\" class=\"btn btn-maroon comment-btn form-control\">Post comment</button>\n  </div>\n</div>\n</div>\n  </form>\n</section>\n<section data-id=\""
+    + "\" class=\"comment-form\">\r\n    <label>Like it? Hate it? Comment here:</label>\r\n    <div class=\"container\">\r\n    <div class=\"row\">\r\n    <div class=\"form-group col-12\">\r\n    <input class=\"comment-input comment-title form-control\" type=\"text\" name=\"comment[title]\" required placeholder=\"Title\">\r\n    </div>\r\n    <div class=\"form-group col-12\">\r\n    <textarea class=\"comment-input comment-body form-control\" name=\"comment[body]\" required placeholder=\"Comment\"></textarea>\r\n  </div>\r\n    <div class=\"form-group col-8\">\r\n    <button type=\"submit\" class=\"btn btn-maroon comment-btn form-control\">Post comment</button>\r\n  </div>\r\n</div>\r\n</div>\r\n  </form>\r\n</section>\r\n<section data-id=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"_id") : stack1), depth0))
-    + "\" class=\"comment-form-sect feedback-area rating-sect col-3\">\n  <label>Add a rating:</label>\n  <hr>\n  <span data-id=1 class=\"star\">&#9734;</span>\n  <span data-id=2 class=\"star\">&#9734;</span>\n  <span data-id=3 class=\"star\">&#9734;</span>\n  <span data-id=4 class=\"star\">&#9734;</span>\n  <span data-id=5 class=\"star\">&#9734;</span>\n  <hr>\n  <form data-id=\""
+    + "\" class=\"comment-form-sect feedback-area rating-sect col-3\">\r\n  <label>Add a rating:</label>\r\n  <hr>\r\n  <span data-id=1 class=\"star\">&#9734;</span>\r\n  <span data-id=2 class=\"star\">&#9734;</span>\r\n  <span data-id=3 class=\"star\">&#9734;</span>\r\n  <span data-id=4 class=\"star\">&#9734;</span>\r\n  <span data-id=5 class=\"star\">&#9734;</span>\r\n  <hr>\r\n  <form data-id=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"recipe") : depth0)) != null ? lookupProperty(stack1,"recipe") : stack1)) != null ? lookupProperty(stack1,"_id") : stack1), depth0))
-    + "\" class=\"ratings-form\">\n  <input type=\"text\" name=\"rating[rating]\" class=\"rating-input\">\n  <button class=\"btn btn-maroon post-ratings\">Post rating</button>\n  </form>\n</section>\n";
+    + "\" class=\"ratings-form\">\r\n  <input type=\"text\" name=\"rating[rating]\" class=\"rating-input\">\r\n  <button class=\"btn btn-maroon post-ratings\">Post rating</button>\r\n  </form>\r\n</section>\r\n";
 },"useData":true,"useBlockParams":true});
 
 /***/ }),
