@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Share-a-Recipe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <div id="sign-up-modal" class="modal fade container" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title title-font" id="staticBackdropLabel">Sign Up Here</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body row d-flex">
+        <form class='sign-up'>
+          <div class="form-group">
+          <div class="col-10"><input class="sign-up-input form-control" required type="text" name="credentials[email]" placeholder="Email"></div>
+          </div>
+          <div class="form-group">
+          <div class="col-10"><input class="sign-up-input form-control" required type="password" name="credentials[password]" placeholder="Password"></div>
+          </div>
+          <div class="form-group">
+          <div class="col-10"><input class="sign-up-input form-control" required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"></div>
+          </div>
+          <div class="form-group">
+          <div class="col-6"><button class="btn-maroon auth-btn btn form-control" type="submit">Sign Up</button></div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+      <a class="go-to-sign-in dummy-link">Already have an account? Click here!</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade container" id="sign-in-modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+  <h3 class="modal-title title-font" id="staticBackdropLabel">Sign In Here</h3>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body row d-flex">
+  <form class='sign-in'>
+    <div class="form-group">
+    <div class="col-10"><input class="sign-in-input form-control" required type="text" name="credentials[email]" placeholder="Email"></div>
+    </div>
+    <div class="form-group">
+    <div class="col-10"><input class="sign-in-input form-control" required type="password" name="credentials[password]" placeholder="Password"></div>
+    </div>
+    <div class="form-group">
+    <div class="col-6"><button class="btn-maroon auth-btn btn form-control" type="submit">Sign In</button></div>
+    </div>
+  </form>
+  </div>
+  <div class="modal-footer">
+<a class="go-to-sign-up dummy-link" >Don't have an account? Click here!</a>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade container" id="change-password-modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+  <h3 class="modal-title title-font" id="staticBackdropLabel">Update Your Password</h3>
+  <button type="button" class="close close-password" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body row d-flex">
+  <form class='change-password'>
+    <div class="form-group">
+    <div class="col-10"><input class="change-password-input form-control" required type="password" name="passwords[old]" placeholder="Old Password"></div>
+    </div>
+    <div class="form-group">
+    <div class="col-10"><input class="change-password-input form-control" required type="password" name="passwords[new]" placeholder="New Password"></div>
+    </div>
+    <div class="form-group">
+    <div class="col-9"><button class="btn-maroon auth-btn btn form-control" type="submit">Change Password</button></div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-secondary close-password close-modal" data-toggle="modal" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade container" id="post-recipe-modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+  <h3 class="modal-title title-font" id="staticBackdropLabel">Post a Recipe</h3>
+  <button type="button" class="close close-password" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body row d-flex">
+   <form class="post-recipes">
+    <div class="form-group row col-8">
+    <input class="title form-label post-field form-control" required type="text" name="recipe[title]" placeholder="Recipe Title">
+    </div>
+    <div class="form-group row col-8">
+      <label class="form-label">Type of recipe:</label>
+        <select required class="form-control" name="recipe[meal]">
+          <option>Breakfast</option>
+          <option>Lunch</option>
+          <option>Dinner</option>
+          <option>Dessert</option>
+          <option>Side</option>
+          <option>Snack</option>
+          <option>Beverage</option>
+        </select>
+      </div>
+      <div class="form-group row col-8">
+      <label class="form-label">Difficulty:</label>
+        <select required class="form-control" name="recipe[difficulty]">
+          <option>Easy</option>
+          <option>Moderate</option>
+          <option>Difficult</option>
+        </select>
+      </div>
+    <div class='ingredients form-group row col-10'>
+    <label class="title form-label">Ingredients:</label>
+    <small class="col-12">Put your ingredients and ingredient amounts below, and make sure to put each ingredient on a new line.</small>
+    <textarea class="post-field form-control" name="recipe[ingredients]" required placeholder="Ingredients go here!"></textarea>
+  </div>
+    <div class='steps form-group row col-10'>
+    <label class="title form-label">Steps:</label>
+    <small class="col-12">Put your steps below, and make sure to put each step on a new line. Don't add numbers or dashes before the steps!</small>
+    <textarea class="post-field form-control" name="recipe[steps]" required placeholder="Steps go here!"></textarea>
+    </div>
+    <div class="form-group row col-6">
+    <button type="submit" class="btn-maroon btn form-label form-control">Post Recipe</button>
+  </div>
+   </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-secondary close-modal" data-toggle="modal" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade container" id="update-recipe-modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+  <h3 class="modal-title title-font" id="staticBackdropLabel">Update a Recipe</h3>
+  <button type="button" class="close close-update" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body row d-flex">
+   <form class="update-recipe">
+    <div class="form-group row col-8">
+    <input class="title form-label update-field form-control" type="text" name="recipe[title]" placeholder="Recipe Title">
+  </div>
+      <div class="form-group row col-8">
+      <label class="form-label">Type of recipe:</label>
+        <select class="form-control" name="recipe[meal]">
+          <option>Breakfast</option>
+          <option>Lunch</option>
+          <option>Dinner</option>
+          <option>Dessert</option>
+          <option>Side</option>
+          <option>Snack</option>
+          <option>Beverage</option>
+        </select>
+      </div>
+      <div class="form-group row col-8">
+      <label class="form-label">Difficulty:</label>
+        <select class="form-control" name="recipe[difficulty]">
+          <option>Easy</option>
+          <option>Moderate</option>
+          <option>Difficult</option>
+        </select>
+      </div>
+      <div class="form-group row col-10">
+    <label class="title form-label">Ingredients:</label>
+    <small class="col-12">Put your ingredients and ingredient amounts below, and make sure to put each ingredient on a new line.</small>
+    <textarea class="update-field form-control modal-textarea" name="recipe[ingredients]" placeholder="Ingredients go here!"></textarea>
+  </div>
+  <div class="form-group row col-10">
+    <label class="title form-label">Steps:</label>
+    <small class="col-12">Put your steps below, and make sure to put each step on a new line. Don't add numbers or dashes before the steps!</small>
+    <textarea class="update-field form-control modal-textarea" name="recipe[steps]" placeholder="Steps go here!"></textarea>
+    </div>
+    <div class="form-group row col-6">
+    <button type="submit" class="update-recipe-btn btn-maroon form-label btn form-control">Update Recipe</button>
+    </div>
+   </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-secondary close-update close-modal" data-toggle="modal" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade container delete-confirmation-elem" id="delete-confirmation-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close warning-close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you SURE you want to delete this recipe?</p>
+        <button type="button" class="btn btn-danger delete-recipe-btn delete-confirmation-elem">Delete Recipe</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary warning-close" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade container" id="messaging-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close warning-close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="messaging"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary warning-close" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-light">
+  <h1>&#10084;Share-a-Recipe&#10084;</h1>
+      <div class="authorized">
+      <ul class="nav justify-content-end">
+  <li class="nav-item mr-sm-2">
+    <a class="nav-link title-font" href="#change-password-modal" data-toggle="modal" data-target="#change-password-modal">Change Password</a>
+  </li>
+  <li class="nav-item mr-sm-2">
+    <button class="sign-out btn btn-danger title-font" type="submit" >Sign Out</button>
+  </li>
+</ul>
+</div>
+<div class="unauthorized">
+  <ul class="nav justify-content-end">
+    <li class="nav-item mr-sm-2">
+      <a class="nav-link title-font" href="#sign-up-modal" data-toggle="modal" data-target="#sign-up-modal"><strong>Sign Up</strong></a>
+    </li>
+    <li class="nav-item mr-sm-2">
+      <a class="nav-link title-font" href="#sign-in-modal" data-toggle="modal" data-target="#sign-in-modal">Sign In</a>
+    </li>
+    <li class="nav-item mr-sm-2">
+      <a class="nav-link title-font guest-login" href="#">Sign In As Guest</a>
+    </li>
+  </ul>
+</div>
+</nav>
+<nav class="nav-navbar">
+  <ul class="nav justify-content-center navbar-authorized">
+  <li class="nav-item heart">
+    &#10084;
+  </li>
+    <li class="nav-item">
+        <button class="get-recipes nav-btn title-font">All recipes</button>
+    </li>
+    <li class="nav-item heart">
+      &#10084;
+    </li>
+    <li class="nav-item">
+      <button class="get-your-recipes nav-btn title-font" type="submit">Your recipes</button>
+    </li>
+    <li class="nav-item heart">
+      &#10084;
+    </li>
+    <li class="nav-item">
+      <button class="nav-btn title-font" data-toggle="modal" data-target="#post-recipe-modal">Post a recipe</button>
+    </li>
+    <li class="nav-item heart">
+      &#10084;
+    </li>
+    <li class="nav-item">
+      <div class="dropdown">
+        <button class="dropdown-toggle nav-btn title-font" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Search by Difficulty
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item difficulty-search easy">Easy</a>
+          <a class="dropdown-item difficulty-search mod">Moderate</a>
+          <a class="dropdown-item difficulty-search dif">Difficult</a>
+        </div>
+      </div>
+    </li>
+    <li class="nav-item heart">
+      &#10084;
+    </li>
+    <li class="nav-item">
+      <div class="dropdown">
+  <button class="dropdown-toggle nav-btn title-font" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Search by Meal Type
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item meal-search breakfast">Breakfast</a>
+    <a class="dropdown-item meal-search lunch">Lunch</a>
+    <a class="dropdown-item meal-search dinner">Dinner</a>
+    <a class="dropdown-item meal-search dessert">Dessert</a>
+    <a class="dropdown-item meal-search side">Side</a>
+    <a class="dropdown-item meal-search snack">Snack</a>
+    <a class="dropdown-item meal-search beverage">Beverage</a>
+  </div>
+</div>
+    </li>
+    <li class="nav-item heart">
+      &#10084;
+    </li>
+  </ul>
+</nav>
+
+
+      <div class="container">
+        <div class="authorized">
+        <div class="row search-inputs">
+          <form class="col-6 form-inline search-by-ingredients">
+            <label class="title-font search-label">Search by Ingredient:</label>
+            <input class="form-control ingred-search form-control-sm ml-3 w-75" required name="ingredients" type="text" placeholder="Ingredients"
+              aria-label="search">
+              <button type="submit" class="btn search-btn title-font">Search</button>
+          </form>
+          <form class="col-5 form-inline search-by-title">
+            <label class="title-font search-label">Search by Title:</label>
+            <input class="form-control title-search form-control-sm ml-3 w-75" required name="title" type="text" placeholder="Title"
+              aria-label="search">
+              <div class="form-group">
+              <button type="submit" class="btn search-btn title-font">Search</button>
+            </div>
+          </form>
+        </div>
+        </div>
+        <div class="recipes row">
+          <section class="opener col-11">Stuck at home with nothing to do? <br> <strong><i>Of course you are!</i></strong> <br> <br>
+            Welcome to <span class=title-font>&#10084;Share-a-Recipe&#10084;</span>, where you can find recipes to make your wildest culinary dreams come true! (Or at least find a new way to pass the time.) <br> <br>
+            To get started on this epicurean adventure, sign in above to see recipes posted by users from anywhere, and post and edit your own!
+          </section>
+        </div>
+        </div>
+    </body>
+</html>
